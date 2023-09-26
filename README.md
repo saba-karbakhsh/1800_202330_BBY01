@@ -1,15 +1,15 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.
+This browser based web application to ...
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * Hey I'm Saba!
 * Hi my name is Liam and I am excited to get to work on this project!
 * HI im maria
-* ...
+* Hi Im Jonathaniel! I'm excited to work with you guys and see how this project turns out :)
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
