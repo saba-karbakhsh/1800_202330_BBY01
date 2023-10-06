@@ -1,12 +1,11 @@
 # Project Title
 
 ## 1. Project Description
-We are creating a social app that encourages mental health through group activities
-    #Main features
-    * Browsing outdoor activities
-    * Posting activities and pictures through threads
-    * Planning activities
-    * Rating pictures and activities posted
+We are creating a social app that encourages mental health through group activities. Our main features are:
+* Browsing outdoor activities
+* Posting activities and pictures through threads
+* Planning activities
+* Rating pictures and activities posted
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
