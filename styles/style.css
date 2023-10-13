@@ -1,1 +1,49 @@
+/*
+*Darkest: #6C8976
+*Light: #ABD1B5
+*Medium: #79B791
 
+.bg-info {
+*/
+
+
+.btn-outline-success {
+    color:#ffffff;
+    background-color:#79B791
+}
+
+.btn-outline-secondary {
+    color: #efeeb4; /* Light shade for text on info button */
+    background-color: #6C8976; /* Accent color for button background */
+    border-color: #309975; /* Dark shade for button border */
+}
+
+.btn-primary {
+    color: #efeeb4; /* Light shade for text */
+    font-size: 150%;
+    background-color: #79B791; /* Dark shade for primary button background */
+    border-color: #79B791; /* Darkest shade for border */
+    border-width: thick;
+}
+
+body {
+    background-color: #ffffff; /* Light shade for body background */
+}
+.navbar-brand{
+    font-family: 'Young Serif', cursive;
+    font-size: 2.5rem;
+    color: #6C8976;
+}
+
+.nav-link{
+    color: #6C8976;
+}
+
+.navbar-expand-lg{
+    background-color: #ABD1B5;
+    color: #6C8976;
+}
+
+.navbar-nav{
+    background-color: #ABD1B5;
+}
