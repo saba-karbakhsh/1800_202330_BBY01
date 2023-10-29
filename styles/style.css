@@ -7,6 +7,11 @@
 */
 
 
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+
 .btn-outline-success {
     color:#ffffff;
     background-color:#79B791
