@@ -1,3 +1,12 @@
+/*
+*Darkest: #6C8976
+*Light: #ABD1B5
+*Medium: #79B791
+
+.bg-info {
+*/
+
+
 /** Container and styles for the browser pages*/
 .container{
     height: 100vh;
@@ -53,7 +62,7 @@ p{
     grid-template-columns: 1fr;
     grid-template-rows: 40% 30% 10% 20%;
     align-content: center;
-    background-color: grey;
+    background-color: white;
 }
 
 #primaryImage{
@@ -95,27 +104,36 @@ p{
 
 
 #rectangle{
-    width: 70%;
+    width: 50%;
     height: 100%;
-    background:steelblue;
-    color: aliceblue;
-    border-radius: 10%;
+    background:#ABD1B5;
+    color: #efeeb4;
+    
     }
 
 #commentButton{
     height: 70%;
     width: 30%;
     margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: #79B791;
+    color: #efeeb4;
+    font-size: 12px;
    
 }
 #ratingButton{
     height: 70%;
     width: 30%;
     margin-left: 30px;
-    
+    background-color: #79B791;
+    display: flex;
+    justify-content: center;
 }
 #joinButton{
     height: 50%;
     width: 60%;
+    background-color: #6C8976;
+    color: #efeeb4;
     
 }
