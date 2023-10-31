@@ -1,6 +1,8 @@
-/*Darkest: #6C8976
+/*
+*Darkest: #6C8976
 *Light: #ABD1B5
 *Medium: #79B791
+
 .bg-info {
 */
 
@@ -65,142 +67,6 @@ body {
 }
 
 
-
-/** Container and styles for the browser pages*/
-.container{
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    'activity1'
-    'activity2'
-    'activity3'
-    'activity4'
-    'activity5';
-    align-content: center;
-    text-align: center;
-}
-
-#browserButton{
-    width: 80%;
-    height: 80%;
-    display: grid;
-    grid-template-columns: 70% 30%;
-    grid-template-rows: 10% 90%;
-    align-items: center;
-    background-color: #6C8976;
-
-}
-
-h1{
-    font-size: 12px;
-    grid-row: 1 /span 1;
-    grid-column: 1 /span 2;
-    color: #efeeb4;
-}
-
-p{
-    font-size: 7px;
-    grid-column: 1 /span 1;
-    grid-row: 2 /span 1;
-    color: #efeeb4;
-
-}
-
-#myimage{
-    height: 60px;
-    width: 60px;
-    margin-left: 40px;
-}
-
-
-/** Container and Styles for the activity pages */
-.activityContainer{
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 40% 30% 10% 20%;
-    align-content: center;
-    background-color: white;
-}
-
-#primaryImage{
-    grid-row: 1 /span 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-#description{
-    grid-row: 2 /span 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-#commentsRatings{
-    grid-row: 3 /span 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-}
-
-#join{
-    grid-row: 4 /span 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-#displayImg{
-    max-width: 70%;
-    max-height: 80%;
-
-}
-
-
-#rectangle{
-    width: 50%;
-    height: 100%;
-    background:#ABD1B5;
-    color: #efeeb4;
-    border-radius: 5%;
-    }
-
-#commentButton{
-    height: 70%;
-    width: 30%;
-    margin-right: 30px;
-    background-color: #79B791;
-    font-size: 13px;
-    display: flex;
-    justify-content: center;
-
-}
-#ratingButton{
-    height: 70%;
-    width: 30%;
-    margin-left: 30px;
-    background-color: #79B791;
-    display: flex;
-    justify-content: center;
-
-}
-#joinButton{
-    height: 50%;
-    width: 60%;
-    background-color: #6C8976;
-    
-
-}
-
 @media only screen and (max-width : 700px) {
     #nav2 {
         display: none;
@@ -211,25 +77,25 @@ p{
         justify-content: space-between;
         align-items: center;
     }
-
+    
     .fa-bars {
         margin-top: 15px;
     }
-
+    
     .me-2 {
         border-radius: 20px;
     }
-
+    
     .btn-outline-success {
         border-radius: 100%;
         border: none;
     }
-
+    
     #chat_icon {
         border: none;
         background: inherit;
     }
-
+    
     .navbar-toggler:focus {
         box-shadow: none;
     }
