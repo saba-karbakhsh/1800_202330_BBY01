@@ -121,7 +121,7 @@ p{
     grid-template-columns: 1fr;
     grid-template-rows: 40% 30% 10% 20%;
     align-content: center;
-    background-color: grey;
+    background-color: white;
 }
 
 #primaryImage{
@@ -160,7 +160,6 @@ p{
     max-height: 80%;
 
 }
-
 
 #rectangle{
     width: 70%;
