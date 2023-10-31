@@ -11,7 +11,7 @@ We are creating a social app that encourages mental health through group activit
 List team members and/or short bio's here... 
 * Hey I'm Saba!
 * Hi my name is Liam and I am excited to get to work on this project!
-* HI im maria
+* Hi! I'm Maria
 * Hi Im Jonathaniel! I'm excited to work with you guys and see how this project turns out :)
 	
 ## 3. Technologies and Resources Used
