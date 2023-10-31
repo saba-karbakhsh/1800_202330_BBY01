@@ -18,6 +18,7 @@
         crossorigin="anonymous"></script>
 
     <!-- Other libraries go here -->
+    <script src="https://kit.fontawesome.com/e0289a92c2.js" crossorigin="anonymous"></script>
     <!-- Firebase Links -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -28,7 +29,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
@@ -40,19 +41,32 @@
     <!------------------------------>
     <!-- Stuff for body goes here -->
 
-    <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
+    <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
-    <!-- Main part  -->
-    <div class="container">
-        <h1>Let's Login!</h1>
-    </div>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+    <!-- Category sections -->
+    <main id="main"> 
+        <form action="">
+            <label for="category1">Category 1</label>
+            <input type="button" id="category1">
+        </form>
 
-    <!-- Footer-->
+        <form action="">
+            <label for="category2">Category 2</label>
+            <input type="button" id="category2">
+        </form>
+
+        <form>
+            <label for="category3">Category 3</label>
+            <input type="button" id="category3">
+        </form>
+
+        <form action="">
+            <label for="category4">Category 4</label>
+            <input type="button" id="category4">
+        </form>
+    </main>
     
-    <nav id="footerPlaceholder"></nav>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
@@ -60,7 +74,6 @@
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/authentication.js"></script>
     <script src="./scripts/script.js"></script>
 
 </body>
