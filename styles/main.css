@@ -1,0 +1,37 @@
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 90vh;
+    position: relative;
+}
+
+#main input{
+    padding: 5em 1em 1em 25em;
+    border-radius: 15px;
+    border: none;
+    background-color: #ABD1B5;
+    filter: opacity();
+    transition: 0.5s;
+
+    position: relative;
+}
+
+
+#main input:hover{
+    background-color: #6C8976;
+    transition: 0.5s;
+}
+
+
+#main label{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #6C8976;
+    font-size: 20pt;
+    font-weight: bold;
+}
