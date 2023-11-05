@@ -10,6 +10,7 @@ function loadSkeleton() {
             // Do something for the user here. //after login state
             console.log($('#navbarPlaceholder').load('./text/nav_after_login.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html')); //change this for sprint two
+            console.log($('#welcomePlaceholder').load('./text/welcome_popup.html')); 
         } else {
             // No user is signed in. //before login state
             console.log($('#navbarPlaceholder').load('./text/nav_before_login.html'));

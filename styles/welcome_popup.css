@@ -1,0 +1,16 @@
+#welcomeContainer{
+    z-index: 99;
+    position: absolute;
+
+    height: 25%;
+
+    left: 15%;
+    top: 30%;
+    text-align: center;
+    transition: 1s;
+
+    border-radius: 10px;
+    background-color: #79B791;
+}
+
+
