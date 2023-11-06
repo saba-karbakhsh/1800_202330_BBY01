@@ -1,0 +1,58 @@
+#header{
+    display: flex;
+    align-items: center;
+    margin-top: 45px;
+}
+#profile{
+    border-radius: 50%;
+    margin: 5%;
+    border: none;
+    background-color: #ddeddd;
+}
+#activities_btn{
+    display: flex;
+    align-items: center;
+}
+#btn1{
+    width: 50%;
+    border: none;
+    border-radius: 15px;
+    margin: 5px;
+    background-color: #ddeddd;
+}
+#btn2{
+    width: 50%;
+    border: none;
+    border-radius: 15px;
+    margin: 5px;
+    background-color: #ddeddd;
+
+}
+#btn1:active{
+    background-color: #79B791;
+}
+#btn2:active{
+    background-color: #79B791;
+}
+[id ^= activity]{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+#joined_activities{
+    display: none;
+}
+
+@media only screen and (max-width : 700px) {
+    #profile{
+        width: 25vw;
+        height: 15vh;
+    }
+}
+
+@media only screen and (max-width : 1600px) and (min-width : 701px) {
+    #profile{
+        width: 10vw;
+        height: 9vw;
+    }
+}
