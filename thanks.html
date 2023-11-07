@@ -45,39 +45,16 @@
     <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
-    
+    <!-- Thank user for posting activity-->
 
-    <!-- Input form to post an activity-->
-    <div id="Activity_Container">
-        <form id="postActivityForm">
-            <h1>Post an Activity!</h1>
-            <div class="form-group">
-                <label for="Activity_Title">Activity Title:</label><br>
-                <input type="text" id="Activity_Title" required placeholder="Title of Activity..."><br><br>
-            </div>
-            <div class="form-group">
-                <label for="Activity_Description">Activity Description:</label><br>      
-                <textarea id="Activity_Description" required placeholder="Describe your Activity..." cols="25" rows="4"></textarea><br><br>
-            </div>
-            Please select the category that best describes your activity: <br>
-            <select class="form-group" id="CategorySelect">
-                <option>Hiking/Camping</option>
-                <option>Sports</option>
-                <option>Gastronomy</option>
-                <option>Seasonal</option>
-            </select><br><br>
-            
-            <label for="DateTime">Please select the time and date of your activity:</label><br>
-            <input type="datetime-local" required id="DateTime"><br><br>
-
-            <label for="Location">Location of the Activity:</label><br>
-            <textarea id="Location" required placeholder="Address of Location..." cols="25" rows="3"></textarea><br><br>
-
-            <label for="ActivityImage">Please upload an image that fits the activity!</label><br>
-            <input type="file" id="ActivityImage"  accept="image/*"><br><br>
-
-            <button type="submit" class="btn btn-outline-secondary btn-lg px-4">Post Activity</button>
-    </form>
+    <div class="card text-center">
+        <div class="card-header">
+          Successfully posted activity!
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Thanks for posting this activity!</h5>
+          <a href="categories.html" class="btn btn-primary">Browse activities</a>
+        </div>
 </div>
     
     

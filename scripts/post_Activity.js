@@ -13,16 +13,7 @@ activityForm.addEventListener("submit", function(e) {
         //Get Form Data:
         const title = document.getElementById("Activity_Title").value;
         const description = document.getElementById("Activity_Description").value;
-        const categoryButtons = document.querySelectorAll('input[name="Category"]');
-        let category  = '';
-
-        categoryButtons.forEach((radio) => {
-            if(radio.checked) {
-                const label = radio.getAttribute("data-label");
-                category = label;
-            }
-        });
-
+        const category = document.getElementById("CategorySelect").value;
         const datetime = document.getElementById("DateTime").value;
         const location = document.getElementById("Location").value;
         const imageFile = document.getElementById("ActivityImage").files[0];
@@ -46,8 +37,9 @@ activityForm.addEventListener("submit", function(e) {
 
         //Add new activities document to the "Activities" collection:
         activitiesCollectionRef.add(activityData)
-        .then((activityDocRef) => {
-            console.log("Activity added with ID: ", activityDocRef.id);
+        .then(() => {
+            window.location.href = "thanks.html";
+            //console.log("Activity added with ID: ", activityDocRef.id);
 
             //Upload image to the Firebase Storage
             //const imageRef = storage.ref('activityImages/${activityDocRef.id}');
