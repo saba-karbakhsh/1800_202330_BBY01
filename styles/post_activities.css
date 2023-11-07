@@ -1,0 +1,22 @@
+#Activity_Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+#postActivityForm {
+    
+    width: auto;
+    justify-self: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left:  5%;
+    margin-right: 5%;
+}
+
+#postActivityForm {
+    text-align: left;
+}
