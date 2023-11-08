@@ -9,13 +9,11 @@ function displayCardsDynamically(collection) {
                 var description = doc.data().description;  // get value of the "details" key
                 var datetime = doc.data().datetime;    //get unique ID to each hike to be used for fetching right image
                 var location = doc.data().location; //gets the length field
+                var category =  doc.data().category;
                 var docID = doc.id;
-                console.log(title);
-                console.log(description);
-                console.log(datetime);
-                console.log(docID);
                 let newCard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
+                console.log(category);
                 console.log(newCard);
                 //update title and text and image
                 newCard.querySelector('.card-title').innerHTML = title;
@@ -29,7 +27,9 @@ function displayCardsDynamically(collection) {
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
                 //attach to gallery, Example: "hikes-go-here"
-                document.getElementById(collection + "-go-here").appendChild(newCard);
+                if (category == "Gastronomy"){
+                    document.getElementById(collection + "-go-here-" + category).appendChild(newCard);
+                }
 
                 //i++;   //Optional: iterate variable to serve as unique ID
             })

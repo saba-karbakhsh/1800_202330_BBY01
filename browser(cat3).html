@@ -42,90 +42,29 @@
     <nav id="navbarPlaceholder"></nav>
 
     <div class="container">
-      <h2>Category 3</h2>
-      <div class="section" id="activity1">
-        <button onclick="window.location='activity1cat3.html'" type="button" class="btn btn-primary btn-lg" id="browserButton">
-          <h1 Class>Activity 1</h1>
-          <input type="image" id="myimage" src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Nisi quaerat perferendis atque saepe fugiat dignissimos 
-            consequuntur eaque maxime rem corrupti harum voluptatem dolorum, 
-            rerum placeat ducimus laboriosam minima exercitationem accusantium.
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-          </p>   
-        </button>
+      <h1>category</h1>
+      <!-- Here is the container for cards  -->
+      <div class="container">
+        <div id="Activities-go-here-Gastronomy" class="row row-cols-auto">
+        </div>
       </div>
-
-      <div class="section" id="activity2" >
-        <button type="button" class="btn btn-primary btn-lg"  id="browserButton">
-          <h1>Activity 2</h1>
-          <input type="image" id="myimage" src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Nisi quaerat perferendis atque saepe fugiat dignissimos 
-            consequuntur eaque maxime rem corrupti harum voluptatem dolorum, 
-            rerum placeat ducimus laboriosam minima exercitationem accusantium.
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span></p>  
-        </button>
-      </div>
-
-      <div class="section" id="activity3">
-        <button type="button" class="btn btn-primary btn-lg"  id="browserButton">
-          <h1>Activity 3</h1>
-          <input type="image" id="myimage" src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Nisi quaerat perferendis atque saepe fugiat dignissimos 
-            consequuntur eaque maxime rem corrupti harum voluptatem dolorum, 
-            rerum placeat ducimus laboriosam minima exercitationem accusantium.
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-          </p> 
-        </button>
-      </div>
-
-      <div class="section" id="activity4">
-        <button type="button" class="btn btn-primary btn-lg"  id="browserButton">
-          <h1>Activity 4</h1> 
-          <input type="image" id="myimage" src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Nisi quaerat perferendis atque saepe fugiat dignissimos 
-            consequuntur eaque maxime rem corrupti harum voluptatem dolorum, 
-            rerum placeat ducimus laboriosam minima exercitationem accusantium.
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-          </p> 
-        </button>
-      </div>
-
-      <div class="section" id="activity5">
-        <button type="button" class="btn btn-primary btn-lg"  id="browserButton">
-          <h1 class="BrowserH1">Activity 5</h1>
-          <input type="image" id="myimage" src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            Nisi quaerat perferendis atque saepe fugiat dignissimos 
-            consequuntur eaque maxime rem corrupti harum voluptatem dolorum, 
-            rerum placeat ducimus laboriosam minima exercitationem accusantium.
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-          </p> 
-        </button>
-      </div>
+      <!-- Templates for general use, not displayed -->
+      <template id="activityCardTemplate">
+        <div class="card py-2 mx-2" style="width: 18rem">
+          <img class="card-image card-img-top" src=" ..." alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-location">placeholder</p>
+            <p class="card-datetime">placeholder</p>
+            <br />
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a class="btn btn-primary card-href">Read more ...</a>
+          </div>
+        </div>
+      </template>
     </div>
 
     <!-- Footer-->
@@ -139,5 +78,6 @@
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/activityInfo_cat3.js"></script>
   </body>
 </html>
