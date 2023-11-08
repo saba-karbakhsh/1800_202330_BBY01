@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="">
         <link rel="stylesheet" href="./styles/navbar.css">
         <link rel="stylesheet" href="./styles/footer.css">
-        <link rel="stylesheet" href="./styles/Browser_Activities.css">
+        <link rel="stylesheet" href="./styles/activities.css">
 
     </head>
 
@@ -56,13 +56,9 @@
                 </div>
             </div>
             <div class="item"  id="commentsRatings">
-                <button type="button" class="btn btn-primary btn-lg" id="commentButton">Comments</button>
-                <button type="button" class="btn btn-lg btn-primary" id="ratingButton" disabled> 
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                <button type="button" class="btn btn-lg" id="commentsButton"  onclick="window.location='comment_page.html'"><p>Comments</p></button>
+                <button type="button" class="btn btn-lg" id="participantsButton"> 
+                    <p>View Participants</p>
                 </button>
 
             </div>
@@ -83,6 +79,7 @@
         <script src="./scripts/firebaseAPI_BBY01.js"></script>
         <script src="./scripts/skeleton.js"></script>
         <script src="./scripts/script.js"></script>
+        <script src="./scripts/comments_Page.js"></script>
 
     </body>
 </html>
