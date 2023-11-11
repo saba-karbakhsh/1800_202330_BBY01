@@ -38,20 +38,26 @@
     <link rel="stylesheet" href="./styles/Browser_Activities.css">
     <link rel="stylesheet" href="./styles/eachActivity.css">
 
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/firebaseAPI_BBY01.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/join_activity.js"></script>
+
 </head>
 
 <body>
     <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
     <div><nav id="navbarPlaceholder"></nav></div>
     <div id="container">
-        <img src="..." alt="" id="card_img">
+        <img  alt="" id="card_img">
         <h5 class="card-title" id="activity_title">Card title</h5>
         <div id="description"><p class="card-text">Some quick example text to build on the card title and make up the bulk of
             the card's content.</p></div>
         <div id="comment_participant_btns"><button id="comment_btn" href="#">Comments</button>
             <button id="seeParticipant_btn" href="#">See participants</button>
         </div>
-        <button id="join_btn" onclick="window.location='joined_successfully.html'">Join Activity!</button>
+        <button id="join_btn" onclick="joinActivity()">Join Activity!</button>
     </div>
     </div>
     </div>
@@ -63,11 +69,7 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/firebaseAPI_BBY01.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/join_activity.js"></script>
+    
 </body>
 
 </html>
