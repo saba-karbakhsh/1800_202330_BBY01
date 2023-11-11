@@ -54,5 +54,7 @@ function joinActivity() {
     
   }
 
+  window.location.href = "joined_successfully.html";
 }
+
 
