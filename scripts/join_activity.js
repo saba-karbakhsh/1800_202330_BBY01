@@ -8,53 +8,39 @@ const auth3 = firebase.auth();
 const firestore3 = firebase.firestore();
 
 // Function to handle joining an activity
-function joinActivity() {
+async function joinActivity() {
+    console.log("Started function");
   
-  // Get the current user
-  const currentUser = auth3.currentUser;
-
-  // Check if a user is authenticated
-  if (currentUser) {
-    // Reference to the activity document
-    const activityRef = firestore3.collection("Activities").doc(currentActivityId);
-
-    // Reference to the participants subcollection
-    const participantsRef = activityRef.collection("participants");
-
-    const currentUserUID = currentUser.uid;
-    const userNameRef = firestore3.collection("Users").doc(currentUserUID);
-
-    // Declare userName outside the block
-    let userName;
-
-    // Retrieve the user's name
-    userNameRef.get().then((doc) => {
-      if (doc.exists) {
-        // Access the user's name from the document data
-        userName = doc.data().name;
-        console.log("User's Name:", userName);
-
-        // Add the current user to the participants subcollection
-        participantsRef.doc(currentUser.uid).set({
-          name: userName
-        }).then(() => {
+    const currentUser = auth3.currentUser;
+  
+    if (currentUser) {
+      const activityRef = firestore3.collection("Activities").doc(currentActivityId);
+      const participantsRef = activityRef.collection("participants");
+      const currentUserUID = currentUser.uid;
+      const userNameRef = firestore3.collection("Users").doc(currentUserUID);
+  
+      try {
+        const doc = await userNameRef.get();
+  
+        if (doc.exists) {
+          const userName = doc.data().name;
+          console.log("User's Name:", userName);
+  
+          await participantsRef.doc(currentUser.uid).set({
+            name: userName
+          });
+  
           console.log("User joined the activity!");
-        }).catch((error) => {
-          console.error("Error joining activity:", error);
-        });
-      } else {
-        console.log("No such document!");
+          // Redirect after the user has joined the activity
+          window.location.href = "joined_successfully.html";
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
-    }).catch((error) => {
-      console.error("Error getting user document:", error);
-    });
-
-  } else {
-    console.error("User not authenticated.");
-    
+    } else {
+      console.error("User not authenticated.");
+    }
   }
-
-  window.location.href = "joined_successfully.html";
-}
-
-
+  
