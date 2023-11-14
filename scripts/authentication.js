@@ -19,10 +19,10 @@ var uiConfig = {
             db.collection("Users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
                    name: user.displayName,                    //"Users" collection
                    email: user.email,                         //with authenticated user's ID (user.uid)
-                   activities: db.collection("Users").doc(user.uid).collection("Activities").doc().add({
-                      title: "testtitle",
-                      description: "testdescription",
-                   })
+                   //activities: db.collection("Users").doc(user.uid).collection("Activities").doc().add({
+                   //   title: "testtitle",
+                   //   description: "testdescription",
+                   //})
             }).then(function () {
                    console.log("New user added to firestore");
                    window.location.assign("welcome.html");       //re-direct back to welcome.html after logging or signing up
