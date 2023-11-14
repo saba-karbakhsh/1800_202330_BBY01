@@ -9,6 +9,8 @@
     border: none;
     background-color: #ddeddd;
 }
+
+/*Button styles*/
 #activities_btn{
     display: flex;
     align-items: center;

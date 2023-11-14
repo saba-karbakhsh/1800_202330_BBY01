@@ -47,22 +47,31 @@
             <span id="name-goes-here">username</span>
         </div>
     </div>
+
     <div id="activities_btn">
-        <button onclick="displayCreatedActivities()" id="btn1">createrd_activities</button>
-        <button onclick="displayJoinedActivities()" id="btn2">joined_activities</button>
+        <button onclick="displayCreatedActivities()" id="btn1">Posted activities</button>
+        <button onclick="displayJoinedActivities()" id="btn2">Joined activities</button>
+        <button onclick="displayAllActivities()" id="btn3">All activities</button>  <!-- This is not styled yet -->
     </div>
-    <div id="activities">
-    <div id="created_activities">
-        <div class="section" id="activity1">
-            <button onclick="window.location='activity1cat2.html'" type="button" class="btn btn-primary btn-lg"
-                id="browserButton">
-                <h1 Class>Activity 1</h1>
+
+    
+    <div id="activities"> <!-- Populate this div -->
+        <div id="created_activities"> <!-- Populate for activities created activities -->
+        </div>
+
+        <div id="joined_activities"> <!-- Populate if joined activity -->
+        </div>
+    </div>
+
+    <!-- Template is used in user_home_page.js -->
+    <template id="activityCardTemplate">
+        <!-- Old template ... kept if we want to use it -->
+        <!-- <div class="section" id="activity-template">
+            <button onclick="window.location='activity1cat2.html'" type="button" class="btn btn-primary btn-lg" id="browserButton">
+                <h1 class="title">This is created by me</h1>
                 <input type="image" id="myimage"
                     src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Nisi quaerat perferendis atque saepe fugiat dignissimos
-                    consequuntur eaque maxime rem corrupti harum voluptatem dolorum,
-                    rerum placeat ducimus laboriosam minima exercitationem accusantium.
+                <p class="description">replace text here
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -70,65 +79,25 @@
                     <span class="fa fa-star"></span>
                 </p>
             </button>
-        </div>
-        <div class="section" id="activity1">
-            <button onclick="window.location='activity1cat2.html'" type="button" class="btn btn-primary btn-lg"
-                id="browserButton">
-                <h1 Class>Activity 1</h1>
-                <input type="image" id="myimage"
-                    src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Nisi quaerat perferendis atque saepe fugiat dignissimos
-                    consequuntur eaque maxime rem corrupti harum voluptatem dolorum,
-                    rerum placeat ducimus laboriosam minima exercitationem accusantium.
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </p>
-            </button>
-        </div>
-        <div class="section" id="activity1">
-            <button onclick="window.location='activity1cat2.html'" type="button" class="btn btn-primary btn-lg"
-                id="browserButton">
-                <h1 Class>Activity 1</h1>
-                <input type="image" id="myimage"
-                    src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Nisi quaerat perferendis atque saepe fugiat dignissimos
-                    consequuntur eaque maxime rem corrupti harum voluptatem dolorum,
-                    rerum placeat ducimus laboriosam minima exercitationem accusantium.
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </p>
-            </button>
-        </div>
-    </div>
-    <div id="joined_activities">
-        <div class="section" id="activity1">
-            <button onclick="window.location='activity1cat2.html'" type="button" class="btn btn-primary btn-lg"
-                id="browserButton">
-                <h1 Class>Activity 2</h1>
-                <input type="image" id="myimage"
-                    src="https://www.readersdigest.ca/wp-content/uploads/2015/10/best-hiking-trails-canada.jpg" />
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Nisi quaerat perferendis atque saepe fugiat dignissimos
-                    consequuntur eaque maxime rem corrupti harum voluptatem dolorum,
-                    rerum placeat ducimus laboriosam minima exercitationem accusantium.
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </p>
-            </button>
-        </div>
-    </div>
-    </div>
+        </div> -->
+
+        <!-- Not styled yet Jon will do it -->
+        <div class="card py-2 mx-2" style="width: 100%">
+            <!-- <img class="card-image card-img-top" src=" ..." alt="..." />  Don't need this rn -->
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-location">placeholder</p>
+              <p class="card-datetime">placeholder</p>
+              <br />
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+              </p>
+              <a class="btn btn-primary card-href">Read more ...</a>
+            </div>
+          </div>
+    </template>
+
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
 
@@ -137,6 +106,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/user_home_page.js"></script>
+    <script src="./scripts/get_Users_Activities.js"></script>
 </body>
 
 </html>

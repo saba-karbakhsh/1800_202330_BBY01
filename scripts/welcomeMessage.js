@@ -10,6 +10,7 @@ function insertNameFromFirestore() {
                 console.log(userName);
                 //$("#name-goes-here").text(userName); // jQuery
                 document.getElementById("welcomeText").innerText ="Welcome " + userName + "!";
+                // document.getElementById("authorBox").innerHTML = "Posted by: " + userName;
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
