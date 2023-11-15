@@ -40,12 +40,12 @@
     <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
-    <div id="header">
-        <button id="profile"></button>
-        
-        <div id="username">
-            <span id="name-goes-here">username</span>
-        </div>
+
+
+    <div class="profilePic text-center py-3">
+        <img id="mypic-goes-here"  width=50 height=50/>
+        <input type="file" id="mypic-input" accept="image/*" />
+        <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
     </div>
 
     <div id="activities_btn">
@@ -107,6 +107,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/user_home_page.js"></script>
     <script src="./scripts/get_Users_Activities.js"></script>
+    <script src="./scripts/profile_pic.js"></script>
 </body>
 
 </html>
