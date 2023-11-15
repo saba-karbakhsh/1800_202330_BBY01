@@ -24,8 +24,13 @@ function fetchAndDisplayParticipants() {
         });
 }
 
-// Listen for the click event on the "See Participants" button
-document.getElementById('seeParticipant_btn').addEventListener('click', function () {
-    // Redirect to participants.html with the currentActivityId in the query parameter
-    window.location.href = `view_participants.html?docID=${currentActivityId}`;
-});
+// Check if the element with ID "seeParticipant_btn" exists
+const seeParticipantBtn = document.getElementById('seeParticipant_btn');
+
+if (seeParticipantBtn) {
+    // Listen for the click event on the "See Participants" button
+    seeParticipantBtn.addEventListener('click', function () {
+        // Redirect to participants.html with the currentActivityId in the query parameter
+        window.location.href = `view_participants.html?docID=${currentActivityId}`;
+    });
+}
