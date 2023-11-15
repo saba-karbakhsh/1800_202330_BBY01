@@ -20,6 +20,15 @@ async function joinActivity() {
     const userNameRef = firestore3.collection("Users").doc(currentUserUID);
 
     try {
+      // Check if the user has already joined
+      const joinedCheck = await participantsRef.doc(currentUser.uid).get();
+
+      if (joinedCheck.exists) {
+        // User has already joined the activity, show a popup message
+        alert("You have already joined this activity!");
+        return; // Exit the function to prevent further processing
+      }
+
       const doc = await userNameRef.get();
 
       if (doc.exists) {
@@ -43,9 +52,3 @@ async function joinActivity() {
     console.error("User not authenticated.");
   }
 }
-
-  
-  
-  
-  
-
