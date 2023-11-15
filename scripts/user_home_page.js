@@ -97,3 +97,79 @@ function getPostedActivities (collection) {
 
 //the paramater is the collection we will be sifting through
 getPostedActivities("Activities"); 
+
+
+function getJoinedActivities(collection) {
+    //retrieves the div where we will replace each card of the template
+    let cardTemplate = document.getElementById("activityCardTemplate");
+
+    db.collection(collection).get()
+        .then((allActivities) => {
+
+            //var i = 1;  //Optional: if you want to have a unique ID for each hike
+
+
+
+            allActivities.forEach(doc => { //iterate thru each document in the specified collection
+
+                const firestore = firebase.firestore();
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const currentActivityId = doc.id;
+
+                const activityRef = firestore.collection("Activities").doc(currentActivityId);
+                const participantsRef = activityRef.collection("participants");
+
+                participantsRef.get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((doc1) => {
+                            
+                            if (firebase.auth().currentUser.uid == doc1.id) {
+                                console.log("User matches \n");
+                                //Stores each data field into a var
+                                var title = doc.data().title;
+                                var description = doc.data().description;
+                                var datetime = doc.data().datetime;
+                                var location = doc.data().location;
+                                var category = doc.data().category;
+                                var docID = doc.id;
+            
+                                // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+                                let newCard = cardTemplate.content.cloneNode(true);
+            
+                                //fill the corresponding sections with its correct data
+                                newCard.querySelector('.card-title').innerHTML = title;
+                                newCard.querySelector('.card-location').innerHTML = location;
+                                newCard.querySelector('.card-text').innerHTML = description;
+                                newCard.querySelector('.card-datetime').innerHTML = datetime;
+                                newCard.querySelector('a').href = "eachActivity.html?docID=" + docID;
+            
+                                //gets the element with created activities and adds the template and its proper contents to the posted section
+                                document.getElementById("joined_activities").appendChild(newCard);
+            
+                            } else {
+                                console.log("User name not a match");
+                            }
+                        });
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching participants:", error);
+                    });
+
+
+
+                
+
+                //Optional: give unique ids to all elements for future use
+                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+
+                //i++;   //Optional: iterate variable to serve as unique ID
+            })
+        })
+}
+
+//the paramater is the collection we will be sifting through
+getJoinedActivities("Activities"); 
