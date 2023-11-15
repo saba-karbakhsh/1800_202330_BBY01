@@ -16,7 +16,7 @@ activityForm.addEventListener("submit", function(e) {
         const category = document.getElementById("CategorySelect").value;
         const datetime = document.getElementById("DateTime").value;
         const location = document.getElementById("Location").value;
-        const imageFile = document.getElementById("ActivityImage").files[0];
+        
 
         //Get the user's UID
         
