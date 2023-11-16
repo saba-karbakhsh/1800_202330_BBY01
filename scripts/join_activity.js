@@ -8,6 +8,9 @@ const auth3 = firebase.auth();
 const firestore3 = firebase.firestore();
 
 // Function to handle joining an activity
+// Function to handle joining an activity
+// Function to handle joining an activity
+// Function to handle joining an activity
 async function joinActivity() {
   console.log("Started function");
 
@@ -35,6 +38,21 @@ async function joinActivity() {
         const userName = doc.data().name;
         console.log("User's Name:", userName);
 
+        // Check the number of participants
+        const participantsSnapshot = await participantsRef.get();
+        const currentParticipants = participantsSnapshot.size;
+
+        // Get the activity data using activityRef
+        const activityDoc = await activityRef.get();
+
+        // Assuming maxParticipants is already parsed as an integer
+        const maxParticipants = parseInt(activityDoc.data().max_Participants, 10);
+
+        if (currentParticipants >= maxParticipants) {
+          alert("This activity is already full!");
+          return; // Exit the function
+        }
+
         await participantsRef.doc(currentUser.uid).set({
           name: userName
         });
@@ -52,3 +70,9 @@ async function joinActivity() {
     console.error("User not authenticated.");
   }
 }
+
+
+
+
+
+
