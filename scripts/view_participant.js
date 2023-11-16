@@ -1,28 +1,6 @@
 // participants.js
 
-function fetchAndDisplayParticipants() {
-    const firestore = firebase.firestore();
-    const participantsList = document.getElementById('participantsList');
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentActivityId = urlParams.get('docID');
-
-    const activityRef = firestore.collection("Activities").doc(currentActivityId);
-    const participantsRef = activityRef.collection("participants");
-
-    participantsRef.get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                const participantName = doc.data().name;
-                const listItem = document.createElement('li');
-                listItem.textContent = participantName;
-                participantsList.appendChild(listItem);
-            });
-        })
-        .catch((error) => {
-            console.error("Error fetching participants:", error);
-        });
-}
 
 // Check if the element with ID "seeParticipant_btn" exists
 const seeParticipantBtn = document.getElementById('seeParticipant_btn');
@@ -34,3 +12,44 @@ if (seeParticipantBtn) {
         window.location.href = `view_participants.html?docID=${currentActivityId}`;
     });
 }
+
+// participants.js
+document.addEventListener('DOMContentLoaded', async function () {
+    const participantsList = document.getElementById('participantsList');
+    const firestore = firebase.firestore();
+ 
+    // Replace 'yourCollection' with the actual name of your collection
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentActivityId = urlParams.get('docID');
+
+    const activityRef = firestore.collection("Activities").doc(currentActivityId);
+    const participantsRef = activityRef.collection("participants");
+    
+ 
+    try {
+        // Get participants data from Firestore
+        const querySnapshot = await participantsRef.get();
+        
+        querySnapshot.forEach(doc => {
+               
+            const participant = doc.data();
+ 
+            // Create a list item
+            const listItem = document.createElement('li');
+ 
+            // Create a link for each participant with the user ID in the URL
+            const participantLink = document.createElement('a');
+            participantLink.href = `user_home_page.html?userId=${doc.id}`;
+            participantLink.innerText = participant.name; // Replace with the actual field name
+ 
+            // Append the link to the list item
+            listItem.appendChild(participantLink);
+ 
+            // Append the list item to the participants list
+            participantsList.appendChild(listItem);
+        });
+    } catch (error) {
+        console.error('Error fetching participants:', error);
+    }
+ });
+ 
