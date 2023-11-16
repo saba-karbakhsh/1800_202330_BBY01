@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', async function () {
  
             // Create a list item
             const listItem = document.createElement('li');
- 
+
+            listItem.setAttribute("class" , "list-group-item");
             // Create a link for each participant with the user ID in the URL
             const participantLink = document.createElement('a');
             participantLink.href = `user_home_page.html?userId=${doc.id}`;
