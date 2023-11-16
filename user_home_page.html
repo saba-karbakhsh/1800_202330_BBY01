@@ -29,11 +29,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/welcome.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/user_home_page.css">
     <link rel="stylesheet" href="./styles/Browser_Activities.css">
+
 </head>
 
 <body>
@@ -43,20 +45,22 @@
 
 
     <div class="profilePic text-center py-3">
-        <img id="mypic-goes-here"  width=50 height=50/>
+        <img id="mypic-goes-here" width=70 height=70 style="border-radius: 50%;" onclick="setProfile()" />
         <div id="name-goes-here"></div>
 
-        <input type="file" id="mypic-input" accept="image/*" />
-        <button type="button" class="btn btn-primary" id="save-button" onclick="saveUserInfo()">Save</button>
+        <div id="chooseFile">
+            <input type="file" id="mypic-input" accept="image/*" />
+            <button type="button" class="btn" id="save-button" onclick="saveUserInfo()">Save</button>
+        </div>
     </div>
 
     <div id="activities_btn">
         <button onclick="displayCreatedActivities()" id="btn1">Posted activities</button>
         <button onclick="displayJoinedActivities()" id="btn2">Joined activities</button>
-        <button onclick="displayAllActivities()" id="btn3">All activities</button>  <!-- This is not styled yet -->
+        <button onclick="displayAllActivities()" id="btn3">All activities</button> <!-- This is not styled yet -->
     </div>
 
-    
+
     <div id="activities"> <!-- Populate this div -->
         <div id="created_activities"> <!-- Populate for activities created activities -->
         </div>
@@ -84,20 +88,20 @@
         </div> -->
 
         <!-- Not styled yet Jon will do it -->
-        <div class="card py-2 mx-2" style="width: 100%">
+        <div class="card py-2" style="width: 100%">
             <!-- <img class="card-image card-img-top" src=" ..." alt="..." />  Don't need this rn -->
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-location">placeholder</p>
-              <p class="card-datetime">placeholder</p>
-              <br />
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
-              <a class="btn btn-primary card-href">Read more ...</a>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-location">placeholder</p>
+                <p class="card-datetime">placeholder</p>
+                <br />
+                <p class="card-text">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                </p>
+                <a class="btn card-href">Read more ...</a>
             </div>
-          </div>
+        </div>
     </template>
 
     <!-- our own footer goes here-->

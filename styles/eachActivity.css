@@ -1,36 +1,18 @@
 #join_btn{
     display: block;
     border: none;
-    margin: 0 auto;
-    background-color: #79B791;
-    border-radius: 15px;
+    margin: 15px auto;
+    background-color: #3cb96c;
+    border-radius: 10px;
     color: #fff;
     padding: 10px;
-}
-#seeParticipant_btn{
-    border: none;
-    margin: 20px;
-    background-color: #ABD1B5;
-    border-radius: 15px;
-    color: #fff;
-    padding: 5px;
-    width: 35%;
-}
-    
-#comment_btn{
-    border: none;
-    margin: 20px;
-    background-color: #ABD1B5;
-    border-radius: 15px;
-    color: #fff;
-    padding: 5px;
-    width: 35%;
 }
 #comment_participant_btns{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 #container{
     margin-top: 15%;
+    text-align: center;
 }

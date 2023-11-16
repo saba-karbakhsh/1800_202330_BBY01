@@ -1,16 +1,5 @@
 /** Container and styles for the browser pages*/
 .container{
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    'activity1'
-    'activity2'
-    'activity3'
-    'activity4'
-    'activity5';
     align-content: center;
     text-align: center;
 }
@@ -44,5 +33,5 @@ p{
     margin-left: 40px;
 }
 .container{
-    margin-top: 40%;
+    margin-top: 20%;
 }

@@ -131,3 +131,8 @@ function displayAllActivities() {
     createdActivities.style.display = "block";
     joinedActivities.style.display = "block";
 }
+
+document.getElementById("chooseFile").style.display = "none";
+function setProfile(){
+    document.getElementById("chooseFile").style.display = "block";
+}

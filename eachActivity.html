@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/Browser_Activities.css">
@@ -44,24 +45,26 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/join_activity.js"></script>
     <script src="./scripts/eachActivity.js"></script>
-    
+
 
 </head>
 
 <body>
     <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
-    <div><nav id="navbarPlaceholder"></nav></div>
+
+    <nav id="navbarPlaceholder"></nav>
+
     <div id="container">
-        <img  alt="" id="card_img">
+        <img alt="" id="card_img">
         <h5 class="card-title" id="activity_title">Card title</h5>
-        <div id="description"><p class="card-text">Some quick example text to build on the card title and make up the bulk of
-            the card's content.</p></div>
-        <div id="comment_participant_btns"><button id="comment_btn" href="#">Comments</button>
-            <button id="seeParticipant_btn" >See participants</button>
+        <p id="description" class="card-text">Some quick example text to build on the card title and make up the bulk of
+            the card's content.</p>
+        <p id="dateTime">Date and Time</p>
+        <p id="location">location</p>
+        <div id="comment_participant_btns"><button class="btn" href="#">Comments</button>
+            <button class="btn">participants</button>
         </div>
         <button id="join_btn" onclick="joinActivity()">Join Activity!</button>
-    </div>
-    </div>
     </div>
 
     <!-- Footer-->
@@ -74,14 +77,14 @@
         const seeParticipantBtn = document.getElementById('seeParticipant_btn');
 
         if (seeParticipantBtn) {
-        // Listen for the click event on the "See Participants" button
+            // Listen for the click event on the "See Participants" button
             seeParticipantBtn.addEventListener('click', function () {
-            // Redirect to participants.html with the currentActivityId in the query parameter
-            window.location.href = `view_participants.html?docID=${currentActivityId}`;
+                // Redirect to participants.html with the currentActivityId in the query parameter
+                window.location.href = `view_participants.html?docID=${currentActivityId}`;
             });
         }
     </script>
-    
+
 </body>
 
 </html>

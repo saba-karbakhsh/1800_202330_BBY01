@@ -1,0 +1,9 @@
+body{
+    margin-top: 60px;
+}
+
+.btn{
+    background-color: #79B791;
+    color: #fff;
+    border-radius: 8px;
+}

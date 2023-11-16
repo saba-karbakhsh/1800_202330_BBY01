@@ -30,6 +30,14 @@
     background-color: #ddeddd;
 
 }
+#btn3{
+    width: 50%;
+    border: none;
+    border-radius: 15px;
+    margin: 5px;
+    background-color: #ddeddd;
+}
+
 #btn1:active{
     background-color: #79B791;
 }

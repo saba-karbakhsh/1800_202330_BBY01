@@ -60,6 +60,8 @@ function saveUserInfo() {
             console.log("No user is logged in");
         }
     });
+
+    document.getElementById("chooseFile").style.display = "none";
 }
 
 // Function to populate user information (profile picture) based on the current user
