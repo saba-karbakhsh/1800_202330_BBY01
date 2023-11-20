@@ -36,8 +36,10 @@ activityForm.addEventListener("submit", function (e) {
                     users.forEach(userInfo => {
                         receiverName1 = userInfo.data().name;
                         if (receiverName == receiverName1) {
-                            let cardTemplate = document.getElementById("chatCardTemplate"); // Retrieve the HTML element with the ID "chatCardTemplate" and store it in the cardTemplate variable. 
-                            let newCard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newCard) that will be filled with Firestore data.
+                            // Retrieve the HTML element with the ID "chatCardTemplate" and store it in the cardTemplate variable.
+                            let cardTemplate = document.getElementById("chatCardTemplate");  
+                            // Clone the HTML template to create a new card (newCard) that will be filled with Firestore data.
+                            let newCard = cardTemplate.content.cloneNode(true); 
                            
                             //update title and location and description
                             newCard.querySelector('.card-message').innerHTML = message;

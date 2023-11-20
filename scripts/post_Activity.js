@@ -7,7 +7,8 @@ const auth2 = firebase.auth();
 const activityForm = document.getElementById("postActivityForm");
 
 activityForm.addEventListener("submit", function(e) {
-    e.preventDefault(); //prevent default form submission
+    //prevent default form submission
+    e.preventDefault(); 
 
     if(auth2.currentUser) {
         //Get Form Data:
@@ -42,20 +43,7 @@ activityForm.addEventListener("submit", function(e) {
         activitiesCollectionRef.add(activityData)
         .then(() => {
             window.location.href = "thanks.html";
-            //console.log("Activity added with ID: ", activityDocRef.id);
-
-            //Upload image to the Firebase Storage
-            //const imageRef = storage.ref('activityImages/${activityDocRef.id}');
-            //const imageUpload = imageRef.put(imageFile);
-
-            //imageUpload.then((snapshot) => {
-            //   console.log("Image uploaded successfully!");
-
-                //Reset form after submission:
-            //    activityForm.reset();
-            //}).catch((error) => {
-            //    console.error("Error uploading image:", error);
-           // });
+            
             activityForm.reset();
         })
 

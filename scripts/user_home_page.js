@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    //get UserID from URL
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('userId');
 

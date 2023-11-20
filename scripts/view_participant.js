@@ -1,24 +1,8 @@
-// participants.js
-
-
-
-// Check if the element with ID "seeParticipant_btn" exists
-const seeParticipantBtn = document.getElementById('seeParticipant_btn');
-
-if (seeParticipantBtn) {
-    // Listen for the click event on the "See Participants" button
-    seeParticipantBtn.addEventListener('click', function () {
-        // Redirect to participants.html with the currentActivityId in the query parameter
-        window.location.href = `view_participants.html?docID=${currentActivityId}`;
-    });
-}
-
-// participants.js
 document.addEventListener('DOMContentLoaded', async function () {
     const participantsList = document.getElementById('participantsList');
     const firestore = firebase.firestore();
  
-    // Replace 'yourCollection' with the actual name of your collection
+    
     const urlParams = new URLSearchParams(window.location.search);
     const currentActivityId = urlParams.get('docID');
 

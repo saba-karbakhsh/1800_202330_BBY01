@@ -1,6 +1,5 @@
 //Read ActivitiesID from local storage. 
-//Need Activity ID
-var activityDocID = localStorage.getItem("ActivitiesID");    //visible to all functions on this page
+var activityDocID = localStorage.getItem("ActivitiesID");
 
 
 // We now can use the ActivitiesID to read the name of the Activity from Firestore.
@@ -8,16 +7,15 @@ function getActivityName(id) {
     db.collection("Activities")
       .doc(id)
       .get()
-      .then((thisHike) => { //where thisHike = doc.data();
-        var hikeName = thisHike.data().title;  //where hikeName = doc.data().title;
-        document.getElementById("activityName").innerHTML = hikeName;
+      .then((thisActivity) => {
+        var ActivityName = thisActivity.data().title;
+        document.getElementById("activityName").innerHTML = ActivityName;
           });
 }
 getActivityName(activityDocID);
 
 
-// Add this JavaScript code to make stars clickable
-// Select all elements with the class name "star" and store them in the "stars" variable
+// Creating clickable stars:
 const stars = document.querySelectorAll('.star');
 
 // Iterate through each star element
@@ -40,8 +38,8 @@ function writeReview() {
     let activityLevel = document.getElementById("level").value;
     let activitySeason = document.getElementById("season").value;
     let activityDescription = document.getElementById("description").value;
-    let activityFlooded = document.querySelector('input[name="flooded"]:checked').value;
-    let activityScrambled = document.querySelector('input[name="scrambled"]:checked').value;
+    let joinAgain = document.querySelector('input[name="joinAgain"]:checked').value;
+    let feeling = document.querySelector('input[name="feeling"]:checked').value;
 
     // Get the star rating
 		// Get all the elements with the class "star" and store them in the 'stars' variable
@@ -57,29 +55,29 @@ function writeReview() {
         }
     });
 
-    console.log(activityTitle, activityLevel, activitySeason, activityDescription, activityFlooded, activityScrambled, activityRating);
+    console.log(activityTitle, activityLevel, activitySeason, activityDescription, joinAgain, feeling, activityRating);
 
     var user = firebase.auth().currentUser;
     if (user) {
 
-        var currentUser = db.collection("Users").doc(user.uid); //Corroborate user.uid
-        var userID =  user.uid; //Corroborate userID
+        var userID =  user.uid;
         
 
-        // Get the document for the current user.
+        // Get the document for the current user and write to Firestore collection:
         db.collection("reviews").add({
             activityDocID: activityDocID,
             userID: userID,
             title: activityTitle,
-            level: activityLevel,
+            Enjoyment: activityLevel,
             season: activitySeason,
             description: activityDescription,
-            flooded: activityFlooded,
-            scrambled: activityScrambled,
-            rating: activityRating, // Include the rating in the review
+            WouldJoinAgain: joinAgain,
+            Feeling: feeling,
+            rating: activityRating,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
          }).then(() => {
-            window.location.href = "thanks_for_Review.html"; // Redirect to the thanks page
+            // Redirect to the thanks page
+            window.location.href = "thanks_for_Review.html"; 
         });
     } else {
         console.log("No user is signed in");
@@ -88,55 +86,3 @@ function writeReview() {
 
 
 }
-
-
-
-/** 
-
-const activityForm = document.getElementById("comments");
-
-activityForm.addEventListener("submit", function(e) {
-    e.preventDefault(); //prevent default form submission
-
-    if(auth2.currentUser) {
-        //Get Form Data:
-        const userName = document.getElementById("name").value;
-        const description = document.getElementById("comment").value;
-       
-        //Get the user's UID
-        
-        const userUID = auth2.currentUser.uid;
-
-        //Reference to the activities collection:
-        const activitiesCollectionRef = db2.collection("comments");
-
-        //Data to store in the activity document:
-        const activityData = {
-            userName: userName,
-            description: description,
-            userID: userUID
-        };
-
-
-
-        //Reset form after submission:
-            //    activityForm.reset();
-            //}).catch((error) => {
-            //    console.error("Error uploading image:", error);
-           // });
-            activityForm.reset();
-        })
-
-        .catch((error) => {
-            console.error("Error adding activity: ", error);
-        });
-
-    } else {
-        //If user isnt authenticated:
-        console.log("User is not authenticated.");
-    }
-
-    
-})
-
-*/

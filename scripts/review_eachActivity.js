@@ -7,13 +7,13 @@ function displayActivityInfo() {
         .doc( id )
         .get()
         .then( doc => {
-            thisHike = doc.data();
-            hikeName = doc.data().title;
+            thisActivity = doc.data();
+            ActivityName = doc.data().title;
             description = doc.data().description;
             dateTime = doc.data().datetime;
             activityLocation = doc.data().location;
             
-            document.getElementById( "activity_title" ).innerHTML = hikeName;
+            document.getElementById( "activity_title" ).innerHTML = ActivityName;
             document.getElementById( "description" ).innerHTML = description;
             document.getElementById( "dateTime" ).innerHTML = "Date and Time: " + dateTime;
             document.getElementById( "location" ).innerHTML = "Location: " + activityLocation;
@@ -26,7 +26,8 @@ displayActivityInfo();
 //NEED ACTIVITY ID
 
 function saveActivityDocumentIDAndRedirect(){
-    let params = new URL(window.location.href) //get the url from the search bar
+    //get the url from the search bar
+    let params = new URL(window.location.href) 
     let id = params.searchParams.get("docID");
     localStorage.setItem('ActivitiesID', id);
     window.location.href = 'comment_and_review_page.html';

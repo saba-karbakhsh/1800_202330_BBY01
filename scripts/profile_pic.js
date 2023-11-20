@@ -1,10 +1,11 @@
+//Took this code from the techtips page
 // Declare a global variable to store the File Object reference
 var ImageFile;
 
 // Function to handle the file input change event
 function chooseFileListener() {
-    const fileInput = document.getElementById("mypic-input");   // Pointer #1
-    const image = document.getElementById("mypic-goes-here");   // Pointer #2
+    const fileInput = document.getElementById("mypic-input");
+    const image = document.getElementById("mypic-goes-here");  
 
     // Attach listener to input file
     // When this file changes, do something
@@ -14,7 +15,7 @@ function chooseFileListener() {
         var blob = URL.createObjectURL(ImageFile);
 
         // Change the DOM img element source to point to this file
-        image.src = blob;    // Assign the "src" property of the "img" tag
+        image.src = blob;
     });
 }
 

@@ -7,9 +7,7 @@ console.log("Activity ID: ", currentActivityId);
 const auth3 = firebase.auth();
 const firestore3 = firebase.firestore();
 
-// Function to handle joining an activity
-// Function to handle joining an activity
-// Function to handle joining an activity
+
 // Function to handle joining an activity
 async function joinActivity() {
   console.log("Started function");
@@ -45,12 +43,14 @@ async function joinActivity() {
         // Get the activity data using activityRef
         const activityDoc = await activityRef.get();
 
-        // Assuming maxParticipants is already parsed as an integer
+        // Convert Firestore collection parameter max_Participants from String to
+        //Integer so we can compare it to the current number of participants
         const maxParticipants = parseInt(activityDoc.data().max_Participants, 10);
 
+        //Check if the activity is already full
         if (currentParticipants >= maxParticipants) {
           alert("This activity is already full!");
-          return; // Exit the function
+          return;
         }
 
         await participantsRef.doc(currentUser.uid).set({
