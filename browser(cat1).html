@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Link to styles of your own -->
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/navbar.css">
   <link rel="stylesheet" href="./styles/footer.css">
   <link rel="stylesheet" href="./styles/Browser_Activities.css">
@@ -40,28 +40,34 @@
 <body>
   <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
   <nav id="navbarPlaceholder"></nav>
-
+  <h1>Hiking/Camping</h1>
   <div class="container">
-    <h1>category</h1>
+    <br><br>
     <!-- Here is the container for cards  -->
-    <div class="container">
+    <div>
       <div id="Activities-go-here-Hiking/Camping" class="row row-cols-auto">
       </div>
     </div>
     <!-- Templates for general use, not displayed -->
     <template id="activityCardTemplate">
-      <div class="card py-2 mx-2" style="width: 100%">
-        <img class="card-image card-img-top" src=" ..." alt="..." />
+      <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-location">placeholder</p>
-          <p class="card-datetime">placeholder</p>
-          <br />
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a class="btn btn-primary card-href">Read more ...</a>
+          <!-- <img class="card-image card-img-top" src=" ..." alt="..." /> -->
+          <div id="topSection">
+            <h5 class="card-title">Card title</h5>
+          </div>
+          <div id="middleSection">
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+          <div id="lowerSection">
+            <p class="card-location">location palceholder</p>
+            <p class="card-datetime">date placeholder</p>
+            <br />
+            <a class="btn card-href">Read more</a>
+          </div>
         </div>
       </div>
     </template>

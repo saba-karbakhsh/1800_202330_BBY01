@@ -1,12 +1,6 @@
-#home_btn{
+#home_btn, #plus_btn, #user_profile_btn{
     border: none;
     background-color: inherit;
+    /* margin-bottom: 2em; */
 }
-#plus_btn{
-    border: none;
-    background-color: inherit;
-}
-#user_profile_btn{
-    border: none;
-    background-color: inherit;
-}
+

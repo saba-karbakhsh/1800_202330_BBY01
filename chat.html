@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
     <title>My BCIT Project</title>
     <meta name="comp1800 template" content="My 1800 App">
 
@@ -27,51 +28,50 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-    <!-- Font Awesome Icon Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/Browser_Activities.css">
-  </head>
+    <link rel="stylesheet" href="./styles/chat.css">
+</head>
 
-  <body>
-    <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
+<body>
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+    <!-- Stuff for body goes here -->
+
+    <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
-    <h1>Sports</h1>
-    <div class="container">
-      <br><br>
-      <!-- Here is the container for cards  -->
-      <div>
-        <div id="Activities-go-here-Sports" class="row row-cols-auto">
+
+    <div id="showChats">
+        <!-- Here is the container for cards  -->
+        <div>
+            <div id="chats-go-here" class="row row-cols-auto">
+            </div>
         </div>
-      </div>
-      <!-- Templates for general use, not displayed -->
-      <template id="activityCardTemplate">
-        <div class="card">
-          <div class="card-body">
-            <!-- <img class="card-image card-img-top" src=" ..." alt="..." /> -->
-            <div id="topSection">
-              <h5 class="card-title">Card title</h5>
+        <!-- Templates for general use, not displayed -->
+        <template id="chatCardTemplate">
+            <div class="card py-2" style="width: 100%">
+                <div class="card-body">
+                    <p class="card-message">placeholder</p>
+                </div>
             </div>
-            <div id="middleSection">
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
-            </div>
-            <div id="lowerSection">
-              <p class="card-location">location palceholder</p>
-              <p class="card-datetime">date placeholder</p>
-              <br />
-              <a class="btn card-href">Read more</a>
-            </div>
-          </div>
-        </div>
-      </template>
+        </template>
     </div>
+
+
+
+    <form id="chatForm">
+        <label for="message">message</label>
+        <input id="message" type="text">
+        <label for="receiver">user name</label>
+        <input id="receiver" type="text">
+        <br>
+        <button id="submit">submit</button>
+    </form>
+
     <!-- Footer-->
     <nav id="footerPlaceholder"></nav>
 
@@ -83,6 +83,8 @@
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/activityInfo_cat2.js"></script>
-  </body>
+    <script src="./scripts/chat.js"></script>
+
+</body>
+
 </html>

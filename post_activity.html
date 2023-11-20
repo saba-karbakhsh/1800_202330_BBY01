@@ -29,6 +29,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/welcome.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
@@ -70,15 +71,16 @@
             <label for="DateTime">Please select the time and date of your activity:</label><br>
             <input type="datetime-local" required id="DateTime"><br><br>
 
+            <label for="maxParticipants">Maximum number of Participants:</label><br>
+            <input type="number" id="maxParticipants" required placeholder="Enter number"><br><br>
+
             <label for="Location">Location of the Activity:</label><br>
             <textarea id="Location" required placeholder="Address of Location..." cols="25" rows="3"></textarea><br><br>
 
-            <label for="ActivityImage">Please upload an image that fits the activity!</label><br>
-            <input type="file" id="ActivityImage"  accept="image/*"><br><br>
 
             <button type="submit" class="btn btn-outline-secondary btn-lg px-4">Post Activity</button>
-    </form>
-</div>
+        </form>
+    </div>
     
     
     <!-- Footer-->

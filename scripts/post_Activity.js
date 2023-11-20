@@ -1,7 +1,7 @@
 //Initialize Firebase and get reference to the Firestore database
 const db2 = firebase.firestore();
 const auth2 = firebase.auth();
-const storage = firebase.storage();
+
 
 //Event listener for when activity ist posted:
 const activityForm = document.getElementById("postActivityForm");
@@ -15,8 +15,9 @@ activityForm.addEventListener("submit", function(e) {
         const description = document.getElementById("Activity_Description").value;
         const category = document.getElementById("CategorySelect").value;
         const datetime = document.getElementById("DateTime").value;
+        const maxParticipants = document.getElementById("maxParticipants").value;
         const location = document.getElementById("Location").value;
-        const imageFile = document.getElementById("ActivityImage").files[0];
+        
 
         //Get the user's UID
         
@@ -31,6 +32,7 @@ activityForm.addEventListener("submit", function(e) {
             description: description,
             category: category,
             datetime: datetime,
+            max_Participants: maxParticipants,
             location: location,
             userID: userUID
         };

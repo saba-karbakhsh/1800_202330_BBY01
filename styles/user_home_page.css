@@ -30,6 +30,14 @@
     background-color: #ddeddd;
 
 }
+#btn3{
+    width: 50%;
+    border: none;
+    border-radius: 15px;
+    margin: 5px;
+    background-color: #ddeddd;
+}
+
 #btn1:active{
     background-color: #79B791;
 }
@@ -46,15 +54,107 @@
 }
 
 @media only screen and (max-width : 700px) {
-    #profile{
+    /* #profile{
         width: 27vw;
         height: 13vh;
-    }
+    } */
 }
 
 @media only screen and (max-width : 1600px) and (min-width : 701px) {
-    #profile{
+    #profilePic{
         width: 10vw;
         height: 9vw;
     }
+}
+
+/*
+*Darkest: #6C8976
+*Light: #ABD1B5
+*Medium: #79B791
+*/
+
+/* Mobile responsive design */
+@media only screen and (max-width: 500px){
+    #activities{
+        margin-top: 1em;
+        margin-bottom: 3em;
+    }
+
+    /* Activity btn style */
+
+    #btn1, #btn2, #btn3{
+        font-size: 20pt;
+        width: 10em;
+        transition: 0.5s;
+        color: #ABD1B5;
+        background-color: #6C8976;
+    }
+
+    #btn1:hover, #btn2:hover, #btn3:hover{
+        background-color: #79B791;
+        transition: 0.5s;
+        color: #6C8976;
+    }
+
+    /* Profile design */
+    #profileContainer{
+        margin-top: 3em;
+    }
+
+    .name{
+        font-size: 20pt;
+    }
+
+    /* Choosing photo */
+    #chooseFile{
+        display: flex;
+        grid-template-areas: "input btn";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+    }
+
+    #mypic-input{
+        grid-area: input;
+        margin-left: 5em;
+    }   
+
+    #save-button{
+        grid-area: btn;
+    }
+
+    /* Delete button */
+    #deleteBtn{
+        box-shadow: 3px 4px 5px #4f6155;
+        border: 1px solid rgba(128, 128, 128, 0.466);
+        background-color: none;
+        height: 2em;
+        width: 2em;
+        border-radius: 50%;
+        color: #6C8976;
+        transition: 0.1s;
+    }
+
+    #deleteBtn:active{
+        box-shadow: none;
+        transition: 0.1s;
+        border: none;
+        background-color: #6C8976;
+        color: red;
+    }
+
+    #topSection{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Get rid of delete btn for joined activities */
+    #joined_activities #deleteBtn{
+        display: none;
+    }
+
+
+}
+/* Hidden document */
+.hiddenDoc{
+    display: none;
 }
