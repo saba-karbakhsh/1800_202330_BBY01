@@ -7,12 +7,15 @@
     color: #fff;
     padding: 10px;
 }
+
 #comment_participant_btns{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
+
 #container{
     margin-top: 15%;
     text-align: center;
 }
+

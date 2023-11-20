@@ -1,22 +1,45 @@
-#Activity_Container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-}
+/* 
+*Darkest: #6C8976
+*Light: #ABD1B5
+*Medium: #79B791 */
 
 
-#postActivityForm {
+/* Mobile presentation */
+@media only screen and (max-width: 500px){
+    /* Thanks html page */
+    body{
+        display: flex;
+        justify-content: center;
+    }
+
+    .card{
+        box-shadow: 1px 1px 10px #79b79170;
+        margin-top: 10em;
+        width: 20em;
+        color: #6C8976;
+    }
+
+    /* Post activity forum  */
+    #Activity_Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
     
-    width: auto;
-    justify-self: center;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    margin-left:  5%;
-    margin-right: 5%;
-}
-
-#postActivityForm {
-    text-align: left;
+    
+    #postActivityForm {
+        
+        width: auto;
+        justify-self: center;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        margin-left:  5%;
+        margin-right: 5%;
+    }
+    
+    #postActivityForm {
+        text-align: left;
+    }
 }

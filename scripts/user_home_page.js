@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 function getUserProfile(userId) {
     // Get the user profile document from Firestore
     const userProfileRef = db.collection("Users").doc(userId);
@@ -38,6 +39,7 @@ function getUserProfile(userId) {
     });
 }
 
+// Gets users posted activities and displays it on profile
 function getPostedActivities(collection, userId) {
     const cardTemplate = document.getElementById("activityCardTemplate");
     const createdActivities = document.getElementById("created_activities");
@@ -61,6 +63,7 @@ function getPostedActivities(collection, userId) {
                     newCard.querySelector('.card-text').innerHTML = description;
                     newCard.querySelector('.card-datetime').innerHTML = datetime;
                     newCard.querySelector('a').href = "eachActivity.html?docID=" + docID;
+                    newCard.querySelector('.hiddenDoc').innerHTML = docID;
 
                     createdActivities.appendChild(newCard);
                 }
@@ -68,6 +71,7 @@ function getPostedActivities(collection, userId) {
         })
 }
 
+// Gets activities joined and displays on profile
 function getJoinedActivities(collection, userId) {
     const cardTemplate = document.getElementById("activityCardTemplate");
     const joinedActivities = document.getElementById("joined_activities");
@@ -132,7 +136,31 @@ function displayAllActivities() {
     joinedActivities.style.display = "block";
 }
 
+
 document.getElementById("chooseFile").style.display = "none";
 function setProfile(){
     document.getElementById("chooseFile").style.display = "block";
+}
+
+// Still working on
+function deletePost(){
+    const auth = firebase.auth().currentUser.uid;
+    let activityID = document.getElementById("hidden").innerHTML;
+    console.log("This is documents id: " + activityID);
+
+    // Reference to the activities collection
+    var activityRef = db.collection("Activities");
+
+    // gets activity docs with the userID matching the current User
+    activityRef.where("userID", "==", auth)
+        .get()
+        .then((allActivities) => {
+            allActivities.forEach(doc => {  
+                // // console.log(doc.id, "", acitvity);
+                // if(doc.id == activityID){
+                //     console.log("Removing the item");
+                // }
+        })
+
+    })
 }

@@ -9,7 +9,7 @@ function insertNameFromFirestore() {
                 var userName = userDoc.data().name;
                 console.log(userName);
                 //$("#name-goes-here").text(userName); // jQuery
-                document.getElementById("welcomeText").innerText ="Welcome " + userName + "!";
+                // document.getElementById("welcomeText").innerText ="Welcome " + userName + "!";
                 // document.getElementById("authorBox").innerHTML = "Posted by: " + userName;
             })
         } else {
