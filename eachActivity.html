@@ -43,25 +43,29 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/join_activity.js"></script>
+    <script src="./scripts/review_eachActivity.js"></script>
 
 </head>
 
 <body>
     <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
     <div><nav id="navbarPlaceholder"></nav></div>
+
     <div id="container">
-        <img  alt="" id="card_img">
+        <img alt="" id="card_img">
         <h5 class="card-title" id="activity_title">Card title</h5>
         <div id="description"><p class="card-text">Some quick example text to build on the card title and make up the bulk of
             the card's content.</p></div>
-        <div id="comment_participant_btns"><button id="comment_btn" href="#">Comments</button>
-            <button id="seeParticipant_btn" href="#">See participants</button>
+        <div id="comment_participant_btns">
+            <!--Button users can click on to write review. Calls saveActivityDocumentIDAndRedirect() function-->
+            <button class="btn btn-primary" id="writeReviewBtn" onclick="saveActivityDocumentIDAndRedirect()">Write Review</button>
+            <button class="btn btn-primary" id="seeParticipant_btn" href="#">See participants</button>
         </div>
         <button id="join_btn" onclick="joinActivity()">Join Activity!</button>
     </div>
     </div>
     </div>
-
+    
     <!-- Footer-->
     <nav id="footerPlaceholder"></nav>
 

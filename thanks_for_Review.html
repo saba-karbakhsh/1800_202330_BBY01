@@ -29,49 +29,48 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/comment_page.css">
+    <link rel="stylesheet" href="./styles/welcome.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
-
+    <link rel="stylesheet" href="./styles/post_activities.css">
 </head>
 
 <body>
-    <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+    <!-- Stuff for body goes here -->
+
+    <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
-    <!-- user input comment box -->
-    <div class="container">
-        <h4 class="mt-3 text-center border-bottom pb-2">Comments</h4>
-        <form id="comments">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input id="name" name="name" type="text" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="comment" class="form-label">Write a Comment</label>
-                <textarea id="comment" name="comment" class="form-control"></textarea>
-            </div>
-            <button type="submit" class="btn btn-outline-primary">Post Comment</button>
-        </form>
+    <!-- Thank user for posting activity-->
+    <div class="card text-center">
+        <div class="card-header">
+          Review received successfully!
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Thanks for submitting your review!</h5>
+          <a href="categories.html" class="btn btn-primary">See More Activities</a>
+        </div>
     </div>
+    
+    
+    <!-- Footer-->
+    <nav id="footerPlaceholder"></nav>
 
-    <div class="container cont">
-        <!--where comments will get posted-->
-    </div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
 
-     <!-- Footer-->
-     <nav id="footerPlaceholder"></nav>
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/firebaseAPI_BBY01.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+   
+    
 
-     <!---------------------------------------------->
-     <!-- Your own JavaScript functions go here    -->
-     <!---------------------------------------------->
- 
-     <!-- Link to scripts of your own -->
-     <script src="./scripts/firebaseAPI_BBY01.js"></script>
-     <script src="./scripts/skeleton.js"></script>
-     <script src="./scripts/script.js"></script>
-     <script src="./scripts/comments_Page.js"></script>
-     
+</body>
 
-   </body>
- </html>
+</html>
