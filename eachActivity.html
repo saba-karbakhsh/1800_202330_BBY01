@@ -19,6 +19,8 @@
         crossorigin="anonymous"></script>
 
     <!-- Other libraries go here -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/e0289a92c2.js" crossorigin="anonymous"></script>
     <!-- Firebase Links -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -45,6 +47,7 @@
     <script src="./scripts/join_activity.js"></script>
     <script src="./scripts/eachActivity.js"></script>
     <script src="./scripts/review_eachActivity.js"></script>
+    <script src="./scripts/calculation_of_star_rating.js"></script>
 
 </head>
 
@@ -60,35 +63,42 @@
             the card's content.</p>
         <p id="dateTime">Date and Time</p>
         <p id="location">location</p>
+        <p id="starRating">star rating</p>
+        <span class="material-icons star" id="star1">star_outline</span>
+        <span class="material-icons star" id="star2">star_outline</span>
+        <span class="material-icons star" id="star3">star_outline</span>
+        <span class="material-icons star" id="star4">star_outline</span>
+        <span class="material-icons star" id="star5">star_outline</span>
         <div id="comment_participant_btns"><button class="btn" href="#">Comments</button>
-            <button class="btn" id ="seeParticipant_btn">participants</button>
-        <!-- <div id="description"><p class="card-text">Some quick example text to build on the card title and make up the bulk of
+            <button class="btn" id="seeParticipant_btn">participants</button>
+            <!-- <div id="description"><p class="card-text">Some quick example text to build on the card title and make up the bulk of
             the card's content.</p></div>-->
-        <div id="comment_participant_btns">
-            <!--Button users can click on to write review. Calls saveActivityDocumentIDAndRedirect() function-->
-            <button class="btn btn-primary" id="writeReviewBtn" onclick="saveActivityDocumentIDAndRedirect()">Write Review</button>
-            
+            <div id="comment_participant_btns">
+                <!--Button users can click on to write review. Calls saveActivityDocumentIDAndRedirect() function-->
+                <button class="btn btn-primary" id="writeReviewBtn" onclick="saveActivityDocumentIDAndRedirect()">Write
+                    Review</button>
+
+            </div>
+            <button id="join_btn" onclick="joinActivity()">Join Activity!</button>
         </div>
-        <button id="join_btn" onclick="joinActivity()">Join Activity!</button>
-    </div>
-    
-    <!-- Footer-->
-    <nav id="footerPlaceholder"></nav>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-    <script>
-        const seeParticipantBtn = document.getElementById('seeParticipant_btn');
+        <!-- Footer-->
+        <nav id="footerPlaceholder"></nav>
 
-        if (seeParticipantBtn) {
-            // Listen for the click event on the "See Participants" button
-            seeParticipantBtn.addEventListener('click', function () {
-                // Redirect to participants.html with the currentActivityId in the query parameter
-                window.location.href = `view_participants.html?docID=${currentActivityId}`;
-            });
-        }
-    </script>
+        <!---------------------------------------------->
+        <!-- Your own JavaScript functions go here    -->
+        <!---------------------------------------------->
+        <script>
+            const seeParticipantBtn = document.getElementById('seeParticipant_btn');
+
+            if (seeParticipantBtn) {
+                // Listen for the click event on the "See Participants" button
+                seeParticipantBtn.addEventListener('click', function () {
+                    // Redirect to participants.html with the currentActivityId in the query parameter
+                    window.location.href = `view_participants.html?docID=${currentActivityId}`;
+                });
+            }
+        </script>
 
 </body>
 
