@@ -38,16 +38,13 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/eachActivity.css">
+    
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/join_activity.js"></script>
-    <script src="./scripts/eachActivity.js"></script>
-    <script src="./scripts/review_eachActivity.js"></script>
-    <script src="./scripts/calculation_of_star_rating.js"></script>
+    
 
 </head>
 
@@ -56,51 +53,66 @@
 
     <nav id="navbarPlaceholder"></nav>
 
-    <div id="container">
-        <img alt="" id="card_img">
-        <h5 class="card-title" id="activity_title">Card title</h5>
+    <h2>Reviews</h2>
+    <div class="container">
+        <br><br>
+        <!-- Here is the container for cards  -->
+        <div>
+          <div id="reviews-go-here" class="row row-cols-auto">
+          </div>
+        </div>
+        <!-- Templates for general use, not displayed -->
+        <template id="reviewCardTemplate">
+          <div class="card">
+            <div class="card-body">
+              <div id="topSection">
+                <h5 class="card-title">Card title</h5>
+                <p class="posted-by">Posted by </p>
+              </div>
+              <div id="middleSection">
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+              </div>
+              <div id="lowerSection">
+                <br>
+                <p class="wouldAgain">placeholder</p>
+                <p class="enjoyed">placeholder</p>
+                <p class="rating">Rating</p>
+                <span class="material-icons star" id="star1">star_outline</span>
+                <span class="material-icons star" id="star2">star_outline</span>
+                <span class="material-icons star" id="star3">star_outline</span>
+                <span class="material-icons star" id="star4">star_outline</span>
+                <span class="material-icons star" id="star5">star_outline</span>
+                <br />
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    <!--<div id="container">
+        <h5 class="card-title" id="review_title">Review title</h5>
+        <p id="reviewedBy" class="card-text">Posted by...</p>
         <p id="description" class="card-text">Some quick example text to build on the card title and make up the bulk of
             the card's content.</p>
-        <p id="dateTime">Date and Time</p>
-        <p id="location">location</p>
+        <p id="Enjoyment">Enjoyment</p>
+        <p id="woudlJoinAgain">Would join again</p>
         <p id="starRating">star rating</p>
         <span class="material-icons star" id="star1">star_outline</span>
         <span class="material-icons star" id="star2">star_outline</span>
         <span class="material-icons star" id="star3">star_outline</span>
         <span class="material-icons star" id="star4">star_outline</span>
         <span class="material-icons star" id="star5">star_outline</span>
-        <div>
-            <button class="btn" id="commentsButton">Comments/Reviews</button>
-            <button class="btn" id="seeParticipant_btn">participants</button>
-            <!-- <div id="description"><p class="card-text">Some quick example text to build on the card title and make up the bulk of
-            the card's content.</p></div>-->
-            <div id="comment_participant_btns">
-                <!--Button users can click on to write review. Calls saveActivityDocumentIDAndRedirect() function-->
-                <button class="btn btn-primary" id="writeReviewBtn" onclick="saveActivityDocumentIDAndRedirect()">Write
-                    Review</button>
-
-            </div>
-            <button id="join_btn" onclick="joinActivity()">Join Activity!</button>
-        </div>
-
+        
+    </div> -->
         <!-- Footer-->
         <nav id="footerPlaceholder"></nav>
 
         <!---------------------------------------------->
         <!-- Your own JavaScript functions go here    -->
         <!---------------------------------------------->
-        <script>
-            const seeParticipantBtn = document.getElementById('seeParticipant_btn');
-
-            if (seeParticipantBtn) {
-                // Listen for the click event on the "See Participants" button
-                seeParticipantBtn.addEventListener('click', function () {
-                    // Redirect to participants.html with the currentActivityId in the query parameter
-                    window.location.href = `view_participants.html?docID=${currentActivityId}`;
-                });
-            }
-        </script>
-        <script src="./scripts/redirectToReviews.js"></script>
+       <script src="./scripts/fetchReviews.js"></script>
 
 </body>
 

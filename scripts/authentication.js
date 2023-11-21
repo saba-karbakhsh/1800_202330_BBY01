@@ -35,7 +35,7 @@ var uiConfig = {
     signInOptions: [
       
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      
+      //firebase.auth.PhoneAuthProvider.PROVIDER_ID
     ],
     // Terms of service url.
     tosUrl: '<your-tos-url>',
