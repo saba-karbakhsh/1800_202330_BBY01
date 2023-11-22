@@ -13,7 +13,7 @@ async function joinActivity() {
   console.log("Started function");
 
   const currentUser = auth3.currentUser;
-
+  
   if (currentUser) {
     const activityRef = firestore3.collection("Activities").doc(currentActivityId);
     const participantsRef = activityRef.collection("participants");

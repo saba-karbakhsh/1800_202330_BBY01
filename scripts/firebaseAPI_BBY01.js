@@ -17,4 +17,6 @@ var firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 var storage = firebase.storage();
-// const auth = firebase.auth().currentUser.uid;
+
+// Referenced in user_home_page.html
+const authRef = firebase.auth();

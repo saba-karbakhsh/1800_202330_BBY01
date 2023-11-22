@@ -43,7 +43,7 @@
     <nav id="navbarPlaceholder"></nav>
 
 
-
+    <!-- Profile pic header -->
     <div class="profilePic text-center py-3" id="profileContainer">
         <img id="mypic-goes-here" width=70 height=70 style="border-radius: 50%;" onclick="setProfile()" />
         <div id="name-goes-here" class="name"></div>
@@ -54,6 +54,29 @@
         </div>
     </div>
 
+    <!-- Pops up only when the deletePost is activated -->
+    <div id="deleteConfirmation">
+      <p>Would you like to delete the activity <span id="activity-name"></span></p>  
+      <div id="btnContainer">
+        <button id="confirmBtn">Yes</button>
+        <button id="cancelBtn">No</button>
+      </div>
+    </div>
+
+    <div id="finalConfirmation">
+      <p>
+        This action cannot be reversed please click confirm to finalize 
+      </p>
+      <div id="btnContainer1">
+        <button id="finalConfirm">Confirm</button>
+        <button id="finalCancel">Cancel</button>
+      </div>
+    </div>
+
+    <div id="overlay"></div>
+
+
+    <!-- Filter buttons -->
     <div id="activities_btn">
         <button onclick="displayCreatedActivities()" id="btn1">Posted activities</button>
         <button onclick="displayJoinedActivities()" id="btn2">Joined activities</button>
@@ -76,7 +99,7 @@
             <!-- <img class="card-image card-img-top" src=" ..." alt="..." /> -->
             <div id="topSection">
               <h5 class="card-title" id="title">Card title</h5>
-              <button id="deleteBtn"><i onclick="deletePost()">&times;</i></button>
+              <button class="deleteBtn" id="deleteBtn"><i>&times;</i></button>
             </div>
             <div id="middleSection">
               <p class="card-text">
@@ -90,7 +113,7 @@
               <br />
               <a class="btn card-href">Read more</a>
             </div>
-            <div class="hiddenDoc" id="hidden"></div>
+            <!-- <div class="hiddenDoc" id="hidden"></div> -->
           </div>
         </div>
       </template>
@@ -103,7 +126,6 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/user_home_page.js"></script>
-    <script src="./scripts/get_Users_Activities.js"></script>
     <script src="./scripts/profile_pic.js"></script>
 </body>
 

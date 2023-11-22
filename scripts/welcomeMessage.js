@@ -20,10 +20,11 @@ function insertNameFromFirestore() {
 
 insertNameFromFirestore();
 
+//have a function that creates a users displays the users 
 
-setTimeout(() => {
-    const popUP = document.getElementById('welcomeContainer');
-    popUP.style.display='none';
-    popUP.style.transition='1s';
+// setTimeout(() => {
+//     const popUP = document.getElementById('welcomeContainer');
+//     popUP.style.display='none';
+//     popUP.style.transition='1s';
 
-}, 4000);
+// }, 4000);
