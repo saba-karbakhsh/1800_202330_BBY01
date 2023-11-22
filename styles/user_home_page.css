@@ -132,6 +132,7 @@
         border-radius: 50%;
         color: #6C8976;
         transition: 0.1s;
+        display: none;
     }
 
     #deleteBtn:active{
