@@ -23,7 +23,6 @@ function displayActivityInfo() {
 displayActivityInfo();
 
 //Function Saves the document ID of the activityt in your browser's local storage.
-//NEED ACTIVITY ID
 
 function saveActivityDocumentIDAndRedirect(){
     //get the url from the search bar

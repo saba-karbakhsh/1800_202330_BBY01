@@ -62,7 +62,6 @@ function writeReview() {
 
         var userID =  user.uid;
         
-
         // Get the document for the current user and write to Firestore collection:
         db.collection("reviews").add({
             activityDocID: activityDocID,
@@ -83,6 +82,4 @@ function writeReview() {
         console.log("No user is signed in");
         window.location.href = 'comment_and_review_page.html';
     }
-
-
 }
