@@ -71,6 +71,13 @@ function getPostedActivities(collection, userId) {
                     newCard.querySelector('a').href = "eachActivity.html?docID=" + docID;
                     newCard.querySelector('.deleteBtn').onclick = () => deletePost(docID, title);
 
+                    let deletebtn = newCard.querySelector('.deleteBtn');
+                    if(authRef.currentUser.uid == userID){
+                        deletebtn.style.display = "block";
+                    } else {
+                        deletebtn.style.display = "none";
+                    }
+
                     createdActivities.appendChild(newCard);
                 }
             });
@@ -104,7 +111,6 @@ function deletePost(ActivityIDRef, title){
             finalConfirm.style.display = "block";
             
             finalConfirmBtn.addEventListener("click", function(e){
-                console.log(ActivityIDRef + "is being deleted");
                 db.collection("Activities")
                 .doc(ActivityIDRef)
                 .collection("participants")
@@ -115,10 +121,9 @@ function deletePost(ActivityIDRef, title){
                     .doc(ActivityIDRef)
                     .delete()
                     .then(() => {
-                        console.log("Activity has been deleted");
-                        window.location.reload();
                         finalConfirm.style.display = "none";
                         overlay.style.display = "none";
+                        window.location.reload();
                     });
                 });
             });

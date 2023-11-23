@@ -10,11 +10,10 @@ var uiConfig = {
             db.collection("Users").doc(user.uid).set({         
                    name: user.displayName,
                    email: user.email,
-
             }).then(function () {
                    console.log("New user added to firestore");
                    //re-direct back to welcome.html after logging or signing up
-                   window.location.assign("welcome.html");       
+                   window.location.assign("categories.html");       
             }).catch(function (error) {
                    console.log("Error adding new user: " + error);
             });
