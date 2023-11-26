@@ -5,11 +5,11 @@ const auth2 = firebase.auth();
 const activityForm = document.getElementById("chatForm");
 activityForm.addEventListener("submit", function (e) {
     e.preventDefault(); //prevent default form submission
-
     if (auth2.currentUser) {
         //Get Form Data:
         const message = document.getElementById("message").value;
         const receiverName = document.getElementById("receiver").value;
+        console.log(message);
 
         //Get the user's UID
         userUID = auth2.currentUser.uid;
@@ -34,7 +34,6 @@ activityForm.addEventListener("submit", function (e) {
                         allFriends.forEach(friendInfo => {
 
                             if (friendInfo.data().friendId == receiverId2) {
-                                console.log("yes " + friendInfo.id + " sss " + friendInfo.data().friendId);
                                 db.collection("Users").doc(userUID).collection("Friends").doc(friendInfo.id).collection("Chats").add(chatsData)
                                     .then(() => {
                                         activityForm.reset();
@@ -43,15 +42,15 @@ activityForm.addEventListener("submit", function (e) {
                                     .catch((error) => {
                                         console.error("Error adding chat: ", error);
                                     });
-                                    db.collection("Users").doc(receiverId2).collection("Friends").get().then(allFriends2 =>{
-                                        allFriends2.forEach(friendInfo2 =>{
-                                            if(userUID ==friendInfo2.data().friendId){
 
-                                                db.collection("Users").doc(receiverId2).collection("Friends").doc(friendInfo2.id).collection("Chats").add(chatsData);
-                                            }
-                                        })
-                                    })
+                            }
+                        })
+                    })
+                    db.collection("Users").doc(receiverId2).collection("Friends").get().then(allFriends2 => {
+                        allFriends2.forEach(friendInfo2 => {
+                            if (userUID == friendInfo2.data().friendId) {
 
+                                db.collection("Users").doc(receiverId2).collection("Friends").doc(friendInfo2.id).collection("Chats").add(chatsData);
                             }
                         })
                     })
@@ -65,40 +64,3 @@ activityForm.addEventListener("submit", function (e) {
     }
 
 });
-
-function displayChats(collection) {
-
-    let cardTemplate = document.getElementById("chatCardTemplate"); // Retrieve the HTML element with the ID "chatCardTemplate" and store it in the cardTemplate variable. z
-
-
-    db.collection(collection).get().then(allUsers => {
-        allUsers.forEach(userInfo => {
-            //Get the user's UID
-            userUID = auth2.currentUser.uid;
-        })
-
-        console.log(userUID);
-
-        db.collection(collection).doc(userUID).collection("Friends").get().then(allMyFriends => {
-            allMyFriends.forEach(myFriendsInfo => {
-                var receiverName = myFriendsInfo.data().friendName;
-                let newCard = cardTemplate.content.cloneNode(true);
-                db.collection("Users").doc(userUID).collection("Friends").doc(myFriendsInfo.id).collection("Chats").get().then(a => {
-                    a.forEach(b => {
-
-                        var docID = myFriendsInfo.id;
-
-
-                        newCard.querySelector('.card-title').innerHTML = receiverName;
-                        newCard.querySelector('a').href = "eachChat.html?docID=" + docID;
-
-                        document.getElementById("chats-go-here").appendChild(newCard);
-                    })
-                });
-            })
-        })
-    })
-
-}
-
-displayChats("Users");  //input param is the name of the collection

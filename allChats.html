@@ -45,17 +45,24 @@
     <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
-    <br><br><br><br>
-    <button onclick="window.location.href = 'allChats.html'">see chats</button>
+    <div id="showChats">
+        <!-- Here is the container for cards  -->
+        <div>
+            <div id="chats-go-here" class="row row-cols-auto">
+            </div>
+        </div>
+        <!-- Templates for general use, not displayed -->
+        <template id="chatCardTemplate">
+            <div class="card py-2" style="width: 100%">
+                <div class="card-body">
+                    <p class="card-title">placeholder</p>
+                    <p id="message"></p>
+                    <a class="btn card-href"> more</a>
+                </div>
+            </div>
+        </template>
+    </div>
 
-   <form id="chatForm">
-        <label for="message">message</label>
-        <input id="message" type="text">
-        <label for="receiver">user name</label>
-        <input id="receiver" type="text">
-        <br>
-        <button type="submit" id="submit">submit</button>
-    </form>
 
     <!-- Footer-->
     <nav id="footerPlaceholder"></nav>
@@ -68,7 +75,7 @@
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/chat.js"></script>
+    <script src="./scripts/allChats.js"></script>
 
 </body>
 
