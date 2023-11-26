@@ -1,14 +1,14 @@
-function setsUserIDurl(){
+function setsUserIDurl() {
     document.addEventListener('DOMContentLoaded', function () {
         //get UserID from URL
         const urlParams = new URLSearchParams(window.location.search);
         const userId = urlParams.get('userId');
-    
+
         if (userId) {
             // Call the functions to retrieve and display activities for the specified user
             getPostedActivities("Activities", userId);
             getJoinedActivities("Activities", userId);
-    
+
             // Also retrieve and display user profile information
             getUserProfile(userId);
         } else {
@@ -29,16 +29,16 @@ function getUserProfile(userId) {
                 // Get user data
                 const userName = userDoc.data().name;
                 const profilePicUrl = userDoc.data().profilePic;
-    
+
                 // Display user data in the HTML elements
                 document.getElementById("name-goes-here").innerText = userName;
-    
+
                 if (profilePicUrl) {
                     $("#mypic-goes-here").attr("src", profilePicUrl);
                 }
             } else {
                 console.error('User profile not found in Firestore');
-            }   
+            }
         } catch (error) {
             console.error('Error fetching user profile:', error);
         }
@@ -72,7 +72,7 @@ function getPostedActivities(collection, userId) {
                     newCard.querySelector('.deleteBtn').onclick = () => deletePost(docID, title);
 
                     let deletebtn = newCard.querySelector('.deleteBtn');
-                    if(authRef.currentUser.uid == userID){
+                    if (authRef.currentUser.uid == userID) {
                         deletebtn.style.display = "block";
                     } else {
                         deletebtn.style.display = "none";
@@ -85,50 +85,50 @@ function getPostedActivities(collection, userId) {
 }
 
 // Gets the Activities ID and prompts user to delete or not
-function deletePost(ActivityIDRef, title){
+function deletePost(ActivityIDRef, title) {
     // Get the delete forum and overlay
     document.getElementById("activity-name").innerHTML = "&quot;" + title + "&quot;";
-    
+
     //Get overlay & deleteForum elems
     let deleteForum = document.getElementById("deleteConfirmation");
     let finalConfirm = document.getElementById("finalConfirmation");
     let overlay = document.getElementById("overlay");
 
-    let confirmBtn = document.getElementById("confirmBtn"); 
-    let cancelBtn = document.getElementById("cancelBtn"); 
-    
+    let confirmBtn = document.getElementById("confirmBtn");
+    let cancelBtn = document.getElementById("cancelBtn");
+
     let finalConfirmBtn = document.getElementById("finalConfirm");
     let finalCancelBtn = document.getElementById("finalCancel");
 
     //If user is logged perform the confirm deletion pop ups
-    if (authRef.currentUser){
+    if (authRef.currentUser) {
         deleteForum.style.display = "block";
         overlay.style.display = "block";
 
         //Two confirmation to delete the button
-        confirmBtn.addEventListener("click", function(e) {
+        confirmBtn.addEventListener("click", function (e) {
             deleteForum.style.display = "none";
             finalConfirm.style.display = "block";
-            
-            finalConfirmBtn.addEventListener("click", function(e){
+
+            finalConfirmBtn.addEventListener("click", function (e) {
                 db.collection("Activities")
-                .doc(ActivityIDRef)
-                .collection("participants")
-                .doc()
-                .delete()
-                .then(()=>{
-                    db.collection("Activities")
                     .doc(ActivityIDRef)
+                    .collection("participants")
+                    .doc()
                     .delete()
                     .then(() => {
-                        finalConfirm.style.display = "none";
-                        overlay.style.display = "none";
-                        window.location.reload();
+                        db.collection("Activities")
+                            .doc(ActivityIDRef)
+                            .delete()
+                            .then(() => {
+                                finalConfirm.style.display = "none";
+                                overlay.style.display = "none";
+                                window.location.reload();
+                            });
                     });
-                });
             });
 
-            finalCancelBtn.addEventListener("click", function(e){
+            finalCancelBtn.addEventListener("click", function (e) {
                 overlay.style.display = "none";
                 finalConfirm.style.display = "none";
             })
@@ -136,12 +136,12 @@ function deletePost(ActivityIDRef, title){
         })
 
         //When clicking cancel or outside of forum it will close the delete forum
-        overlay.addEventListener("click", function(e){
+        overlay.addEventListener("click", function (e) {
             overlay.style.display = "none";
             deleteForum.style.display = "none";
         })
 
-        cancelBtn.addEventListener("click", function(e){
+        cancelBtn.addEventListener("click", function (e) {
             overlay.style.display = "none";
             deleteForum.style.display = "none";
             finalConfirm.style.display = "none";
@@ -216,7 +216,7 @@ function displayAllActivities() {
 
 
 document.getElementById("chooseFile").style.display = "none";
-function setProfile(){
+function setProfile() {
     document.getElementById("chooseFile").style.display = "block";
 }
 
@@ -225,7 +225,6 @@ function addFriends() {
     const friendId = urlParams.get('userId');
     const auth2 = firebase.auth();
     userUID = auth2.currentUser.uid;
-
     db.collection("Users").doc(friendId).get().then(userInfo => {
         friendName = userInfo.data().name;
 
@@ -242,6 +241,13 @@ function addFriends() {
             .catch((error) => {
                 console.error("Error adding chat: ", error);
             });
+        db.collection("Users").doc(userUID).get().then(myInfo => {
+
+            db.collection("Users").doc(friendId).collection("Friends").add({
+                friendId: userUID,
+                friendName: myInfo.data().name
+            })
+        })
     })
 
 }

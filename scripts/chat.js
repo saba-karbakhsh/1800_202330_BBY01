@@ -43,7 +43,14 @@ activityForm.addEventListener("submit", function (e) {
                                     .catch((error) => {
                                         console.error("Error adding chat: ", error);
                                     });
-                                db.collection("Users").doc(receiverId2).collection("Friends").doc(friendInfo.id).collection("Chats").add(chatsData);
+                                    db.collection("Users").doc(receiverId2).collection("Friends").get().then(allFriends2 =>{
+                                        allFriends2.forEach(friendInfo2 =>{
+                                            if(userUID ==friendInfo2.data().friendId){
+
+                                                db.collection("Users").doc(receiverId2).collection("Friends").doc(friendInfo2.id).collection("Chats").add(chatsData);
+                                            }
+                                        })
+                                    })
 
                             }
                         })
