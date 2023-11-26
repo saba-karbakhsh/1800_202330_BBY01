@@ -7,3 +7,14 @@ body{
     color: #fff;
     border-radius: 8px;
 }
+#chat{
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+#message{
+    width: 82vw;
+}

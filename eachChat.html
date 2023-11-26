@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>My BCIT Project</title>
@@ -12,12 +12,15 @@
     <!-- Bootstrap Library CSS CDN go here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <!-- Boostrap Library JS CDN  go here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
     <!-- Other libraries go here -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/e0289a92c2.js" crossorigin="anonymous"></script>
     <!-- Firebase Links -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -28,52 +31,55 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/chat.css">
+    <link rel="stylesheet" href="./styles/eachActivity.css">
+
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/firebaseAPI_BBY01.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/eachChat.js"></script>
+
 </head>
 
 <body>
+    <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-
-    <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
+
+    <!-- Here is the container for cards  -->
     <div id="showChats">
         <!-- Here is the container for cards  -->
         <div>
-            <div id="chats-go-here" class="row row-cols-auto">
+            <div id="eachChats-go-here" class="row row-cols-auto">
             </div>
         </div>
         <!-- Templates for general use, not displayed -->
-        <template id="chatCardTemplate">
+        <template id="eachChatCardTemplate">
             <div class="card py-2" style="width: 100%">
-                <div class="card-body">
-                    <p class="card-title">placeholder</p>
-                    <p id="message"></p>
-                    <a class="btn card-href"> more</a>
-                </div>
+                <p id="messages"></p>
             </div>
         </template>
     </div>
+    <br><br><br>
 
 
-
-   <form id="chatForm">
-        <label for="message">message</label>
-        <input id="message" type="text">
-        <label for="receiver">user name</label>
-        <input id="receiver" type="text">
+    <div id="chat">
+        <form action="" id="chatForm">
+            <label for="message"></label>
+            <input id="message" type="text" placeholder="message...">
+        </form>
         <br>
-        <button type="submit" id="submit">submit</button>
-    </form>
+        <button id="submit" onclick="sendMessage()">send</button>
 
+    </div>
     <!-- Footer-->
     <nav id="footerPlaceholder"></nav>
 
@@ -81,14 +87,7 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/firebaseAPI_BBY01.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/chat.js"></script>
 
 </body>
 
 </html>
-
-

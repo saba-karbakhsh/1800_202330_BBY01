@@ -32,7 +32,8 @@ function getStarRating() {
                 //console.log( activityID );
                 average = ((one_star) + (two_star * 2) + (three_star * 3) + (four_star * 4) + (five_star * 5)) / reviewers;
                 if (activityID == activityInfo.id) {
-                    document.getElementById("starRating").innerHTML = "Average rating: " + average;
+
+                    document.getElementById("starRating").innerHTML = "Average rating: " + Number(average).toFixed(1); 
                     for (let i = 1; i <= Math.ceil(average); i++) {
                         document.getElementById(`star${i}`).textContent = 'star';
                         if (Math.round(average) != average && i == Math.ceil(average)) {

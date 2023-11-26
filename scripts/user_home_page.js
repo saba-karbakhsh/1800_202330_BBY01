@@ -219,3 +219,29 @@ document.getElementById("chooseFile").style.display = "none";
 function setProfile(){
     document.getElementById("chooseFile").style.display = "block";
 }
+
+function addFriends() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const friendId = urlParams.get('userId');
+    const auth2 = firebase.auth();
+    userUID = auth2.currentUser.uid;
+
+    db.collection("Users").doc(friendId).get().then(userInfo => {
+        friendName = userInfo.data().name;
+
+        //Data to store in the Friends document:
+        const friendsData = {
+            friendId: friendId,
+            friendName: friendName
+        };
+        db.collection("Users").doc(userUID).collection("Friends").add(friendsData)
+            .then(() => {
+                console.log("friend added!");
+            })
+
+            .catch((error) => {
+                console.error("Error adding chat: ", error);
+            });
+    })
+
+}
