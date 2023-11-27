@@ -21,7 +21,7 @@ function fetchReviews(activityID) {
   
           userRef.get()
             .then((userDoc) => {
-              var username = userDoc.data().name; // Replace 'name' with the actual field name in your document
+              var username = userDoc.data().name;
               console.log('Username:', username);
   
               // Clone the HTML template to create a new card (newCard) that will be filled with Firestore data.
