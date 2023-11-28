@@ -8,6 +8,7 @@ function setsUserIDurl() {
             // Call the functions to retrieve and display activities for the specified user
             getPostedActivities("Activities", userId);
             getJoinedActivities("Activities", userId);
+            getFriends("Users", userId);
 
             // Also retrieve and display user profile information
             getUserProfile(userId);
@@ -193,25 +194,41 @@ function getJoinedActivities(collection, userId) {
 function displayCreatedActivities() {
     const joinedActivities = document.getElementById("joined_activities");
     const createdActivities = document.getElementById("created_activities");
+    const myFriends = document.getElementById("myFriends");
 
     joinedActivities.style.display = "none";
+    myFriends.style.display = "none";
     createdActivities.style.display = "block";
 }
 
 function displayJoinedActivities() {
     const joinedActivities = document.getElementById("joined_activities");
     const createdActivities = document.getElementById("created_activities");
+    const myFriends = document.getElementById("myFriends");
 
     createdActivities.style.display = "none";
+    myFriends.style.display = "none";
     joinedActivities.style.display = "block";
 }
 
 function displayAllActivities() {
     const joinedActivities = document.getElementById("joined_activities");
     const createdActivities = document.getElementById("created_activities");
+    const myFriends = document.getElementById("myFriends");
 
     createdActivities.style.display = "block";
+    myFriends.style.display = "none";
     joinedActivities.style.display = "block";
+}
+
+function displayFriends() {
+    const joinedActivities = document.getElementById("joined_activities");
+    const createdActivities = document.getElementById("created_activities");
+    const myFriends = document.getElementById("myFriends");
+
+    createdActivities.style.display = "none";
+    myFriends.style.display = "block";
+    joinedActivities.style.display = "none";
 }
 
 
@@ -250,4 +267,33 @@ function addFriends() {
         })
     })
 
+}
+
+
+function getFriends(collection, userId) {
+    const friendsList = document.getElementById('firendsList');
+
+    db.collection(collection).doc(userId).collection("Friends").get()
+        .then((allMyFriends) => {
+            allMyFriends.forEach(doc => {
+
+                var friendName = doc.data().friendName;
+                var friendId = doc.data().friendId;
+                // Create a list item
+                const listItem = document.createElement('li');
+
+                listItem.setAttribute("class", "list-group-item");
+                // Create a link for each friend with the user ID in the URL
+                const participantLink = document.createElement('a');
+                participantLink.href = `user_home_page.html?userId=${friendId}`;
+                participantLink.innerText = friendName; // Replace with the actual field name
+
+                // Append the link to the list item
+                listItem.appendChild(participantLink);
+
+                // Append the list item to the friend list
+                friendsList.appendChild(listItem);
+
+            });
+        })
 }
