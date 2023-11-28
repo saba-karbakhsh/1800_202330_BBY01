@@ -26,7 +26,12 @@ async function joinActivity() {
 
       if (joinedCheck.exists) {
         // User has already joined the activity, show a popup message
-        alert("You have already joined this activity!");
+        Swal.fire({
+          title: 'Already Joined!',
+          text: 'You have already joined this activity!',
+          icon: 'info',
+          confirmButtonText: 'OK'
+        });
         return; // Exit the function to prevent further processing
       }
 
@@ -49,7 +54,12 @@ async function joinActivity() {
 
         //Check if the activity is already full
         if (currentParticipants >= maxParticipants) {
-          alert("This activity is already full!");
+          Swal.fire({
+            title: 'Activity Full!',
+            text: 'This activity is already full!',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+          });
           return;
         }
 

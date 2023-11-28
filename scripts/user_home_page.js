@@ -65,9 +65,9 @@ function getPostedActivities(collection, userId) {
                     let newCard = cardTemplate.content.cloneNode(true);
 
                     newCard.querySelector('.card-title').innerHTML = title;
-                    newCard.querySelector('.card-location').innerHTML = location;
+                    newCard.querySelector('.card-location').innerHTML = "Location: " + location;
                     newCard.querySelector('.card-text').innerHTML = description;
-                    newCard.querySelector('.card-datetime').innerHTML = datetime;
+                    newCard.querySelector('.card-datetime').innerHTML = "When: " + datetime;
                     newCard.querySelector('a').href = "eachActivity.html?docID=" + docID;
                     newCard.querySelector('.deleteBtn').onclick = () => deletePost(docID, title);
 
@@ -176,9 +176,9 @@ function getJoinedActivities(collection, userId) {
                                 let newCard = cardTemplate.content.cloneNode(true);
 
                                 newCard.querySelector('.card-title').innerHTML = title;
-                                newCard.querySelector('.card-location').innerHTML = location;
+                                newCard.querySelector('.card-location').innerHTML = "Location: " + location;
                                 newCard.querySelector('.card-text').innerHTML = description;
-                                newCard.querySelector('.card-datetime').innerHTML = datetime;
+                                newCard.querySelector('.card-datetime').innerHTML = "When: " + datetime;
                                 newCard.querySelector('a').href = "eachActivity.html?docID=" + docID;
 
                                 joinedActivities.appendChild(newCard);
