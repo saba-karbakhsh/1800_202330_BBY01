@@ -45,31 +45,16 @@
     <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
-    <div id="showChats">
-        <!-- Here is the container for cards  -->
-        <div>
-            <div id="chats-go-here" class="row row-cols-auto">
-            </div>
-        </div>
-        <!-- Templates for general use, not displayed -->
-        <template id="chatCardTemplate">
-            <div class="card py-2" style="width: 100%">
-                <div class="card-body">
-                    <p class="card-message">placeholder</p>
-                </div>
-            </div>
-        </template>
-    </div>
+    <br><br><br><br>
+    <button onclick="window.location.href = 'allChats.html'">see chats</button>
 
-
-
-    <form id="chatForm">
+   <form id="chatForm">
         <label for="message">message</label>
         <input id="message" type="text">
         <label for="receiver">user name</label>
         <input id="receiver" type="text">
         <br>
-        <button id="submit">submit</button>
+        <button type="submit" id="submit">submit</button>
     </form>
 
     <!-- Footer-->
@@ -88,3 +73,5 @@
 </body>
 
 </html>
+
+
