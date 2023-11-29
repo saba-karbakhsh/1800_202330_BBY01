@@ -220,6 +220,8 @@ function setProfile() {
     document.getElementById("chooseFile").style.display = "block";
 }
 
+
+// adding friends function
 function addFriends() {
     const urlParams = new URLSearchParams(window.location.search);
     const friendId = urlParams.get('userId');
