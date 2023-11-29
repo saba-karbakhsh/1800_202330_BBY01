@@ -69,7 +69,7 @@ function sendMessage() {
                     };
                     db.collection("Users").doc(userUID).collection("Friends").doc(friendInfo.id).collection("Chats").add(chatsData)
                         .then(() => {
-                            document.getElementById("chatForm").reset();
+                            document.getElementById("eachChatForm").reset();
 
                         })
 

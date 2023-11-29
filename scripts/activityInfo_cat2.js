@@ -45,11 +45,11 @@ function displayCardsDynamically(collection) {
   
               // Make the username clickable and redirect to user_home_page.html with userId parameter
               let postedByElement = newCard.querySelector('.postedBy');
-              postedByElement.innerHTML = "posted by " + '<a href="user_home_page.html?userId=' + poster + '">' + userName + '</a>';
+              postedByElement.innerHTML = "posted by " + '<a id = "activityPoster" href="user_home_page.html?userId=' + poster + '">' + userName + '</a>';
   
-              newCard.querySelector('.card-location').innerHTML = location;
+              newCard.querySelector('.card-location').innerHTML = "Location: " + location;
               newCard.querySelector('.card-text').innerHTML = description;
-              newCard.querySelector('.card-datetime').innerHTML = dateFormat + " " + dateTime;
+              newCard.querySelector('.card-datetime').innerHTML = "When: " + dateFormat + " " + dateTime;
               newCard.querySelector('.readmore').href = 'eachActivity.html?docID=' + docID;
   
               // Add activity card to category template:
