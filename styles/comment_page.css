@@ -12,7 +12,7 @@
 }
 
 #reviewTitle {
-    margin-top: 5vh;
+    margin-top: 5;
 }
 
 .comment-box{
@@ -63,9 +63,4 @@
 .comment-box button:hover{
     background-color: #ABD1B5;
 
-}
-
-
-#postButton {
-    
 }
