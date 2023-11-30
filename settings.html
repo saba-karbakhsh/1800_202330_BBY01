@@ -36,11 +36,11 @@
     <!-------------------------------------------->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/welcome.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/participants.css">
-
 </head>
 
 <body>
@@ -54,10 +54,13 @@
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
-    <div id="participantsBody">
-        <h1>Participants</h1>
-        <ul class="list-group list-group-flush" id="participantsList"></ul>
-    </div>
+
+    <br><br><br>
+    <h1>Danger zone</h1>    
+
+    <button id="deleteAcc" onclick="deleteAccount()">Delete Account</button>
+
+
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
   
@@ -67,10 +70,9 @@
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/view_participant.js"></script>
-    <script src="./scripts/script.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/settings.js"></script>
 
-    
 </body>
 
 </html>

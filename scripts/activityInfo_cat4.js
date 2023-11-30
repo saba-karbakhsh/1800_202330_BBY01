@@ -5,6 +5,7 @@ function displayCardsDynamically(collection) {
   
     // Go into collection called "Activities"
     db.collection(collection)
+      .orderBy("datetime", "desc")
       .get()
       .then(allActivities => {
         // Iterate through each doc and get values:
@@ -16,6 +17,21 @@ function displayCardsDynamically(collection) {
           var category = doc.data().category;
           var poster = doc.data().userID;
           var docID = doc.id;
+          
+          //convert the dates to a Date object then convert to UTC string
+          var localDate = new Date(datetime);
+          var dateString = localDate.toUTCString();
+
+          //Store the time to add in AM and PM
+          var dateTime = localDate.toLocaleTimeString();
+          // split the strings between the first half and the half after "GMT"
+          var newStringDate = dateString.split(" ");
+          var day = newStringDate[0]
+          var month = newStringDate[2];
+          var monthNum = newStringDate[1];
+          var year = newStringDate[3];
+          
+          var dateFormat = day + " " + month + " " +  monthNum  + " " + year;
   
           // Clone the HTML template to create a new card (newCard) that will be filled with Firestore data.
           let newCard = cardTemplate.content.cloneNode(true);
@@ -32,7 +48,7 @@ function displayCardsDynamically(collection) {
   
               newCard.querySelector('.card-location').innerHTML = "Location: " + location;
               newCard.querySelector('.card-text').innerHTML = description;
-              newCard.querySelector('.card-datetime').innerHTML = "When: " + datetime;
+              newCard.querySelector('.card-datetime').innerHTML = "When: " + dateFormat + " " + dateTime;
               newCard.querySelector('.readmore').href = 'eachActivity.html?docID=' + docID;
   
               // Add activity card to category template:

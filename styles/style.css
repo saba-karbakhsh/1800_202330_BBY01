@@ -15,3 +15,14 @@
 #message{
     width: 82vw;
 }
+#searchForm{
+    border: 1px solid red;
+}
+
+#searchBar{
+    display: none;
+}
+
+#searchSubmit{
+    display: none;
+}
