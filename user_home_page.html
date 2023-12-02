@@ -42,19 +42,19 @@
   <!-- Needs color, logo, name, svg burger icon for dropdown-->
   <nav id="navbarPlaceholder"></nav>
 
-
   <!-- Profile pic header -->
+  <button id="addAsFriend" onclick="addFriends()" style="border: none; background-color: inherit; float: right; margin-top: 15%;"><i class="fa-solid fa-user-plus fa-xl" style="color: #596869;"></i></button>
   <div class="profilePic text-center py-3" id="profileContainer">
     <img id="mypic-goes-here" width=70 height=70
-      style="border-radius: 50%; border: 1px solid rgba(128, 128, 128, 0.597);" onclick="setProfile()" />
+    style="border-radius: 50%; border: 1px solid rgba(128, 128, 128, 0.597);" onclick="setProfile()" />
     <div id="name-goes-here" class="name"></div>
-
+    
     <div id="chooseFile">
       <input type="file" id="mypic-input" accept="image/*" />
       <button type="button" class="btn" id="save-button" onclick="saveUserInfo()">Save</button>
     </div>
   </div>
-
+  
   <!-- Pops up only when the deletePost is activated -->
   <div id="deleteConfirmation">
     <p>Would you like to delete the activity <span id="activity-name"></span></p>
@@ -73,15 +73,14 @@
       <button id="finalCancel">Cancel</button>
     </div>
   </div>
-
+  
   <div id="overlay"></div>
 
-  <button id="addAsFriend" onclick="addFriends()">add to friends</button>
   <!-- Filter buttons -->
   <div id="activities_btn">
-    <button onclick="displayCreatedActivities()" id="btn1">Posted activities</button>
-    <button onclick="displayJoinedActivities()" id="btn2">Joined activities</button>
-    <button onclick="displayAllActivities()" id="btn3">All activities</button> <!-- This is not styled yet -->
+    <button onclick="displayCreatedActivities()" id="btn1">Posts</button>
+    <button onclick="displayJoinedActivities()" id="btn2">Joined</button>
+    <button onclick="displayAllActivities()" id="btn3">All</button> <!-- This is not styled yet -->
     <button onclick="displayFriends()" id="btn4">Friends</button>
   </div>
 

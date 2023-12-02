@@ -56,28 +56,35 @@
 
 
     <!-- Here is the container for cards  -->
-    <div id="showChats">
+    <div id="showChats" style="border: none;">
         <!-- Here is the container for cards  -->
         <div>
             <div id="eachChats-go-here" class="row row-cols-auto">
             </div>
         </div>
         <!-- Templates for general use, not displayed -->
-        <template id="eachChatCardTemplate">
+        <!--<template id="eachChatCardTemplate">
             <div class="card py-2" style="width: 100%">
                 <p id="messages"></p>
             </div>
-        </template>
+        </template>-->
     </div>
+
+    <template id="eachChatCardTemplate">
+        <div class="card py-2" style="width: 100%">
+            <p id="messages">placeholder</p>
+        </div>
+    </template>
     <br><br><br>
 
 
     <div id="chat">
-        <form action="" id="eachChatForm">
-            <input id="message" type="text" placeholder="message...">
+        <form action="" id="chatForm" style="padding: 0;">
+            <input id="message" type="text" placeholder="message..."
+                style="width: 90vw; height: 37px; margin-right: -32px;">
         </form>
-        <br>
-        <button id="submit" onclick="sendMessage()">send</button>
+        <button id="submit" onclick="sendMessage()" style="border: none;
+        background-color: inherit;"><i class="fa-solid fa-paper-plane fa-xl" style="color: #596869;"></i></button>
 
     </div>
     <!-- Footer-->

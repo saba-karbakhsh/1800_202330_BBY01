@@ -9,7 +9,9 @@
     border: none;
     background-color: #ddeddd;
 }
-
+a{
+    text-decoration: none;
+}
 /*Button styles*/
 #activities_btn{
     display: flex;
@@ -82,6 +84,7 @@
 */
 
 /* Mobile responsive design */
+
 @media only screen and (max-width: 500px){
     #activities{
         margin-top: 1em;
@@ -91,8 +94,8 @@
     /* Activity btn style */
 
     #btn1, #btn2, #btn3 , #btn4{
-        font-size: 20pt;
         width: 10em;
+        padding: 12px;
         transition: 0.5s;
         color: #ABD1B5;
         background-color: #6C8976;
@@ -101,7 +104,7 @@
     #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover{
         background-color: #79B791;
         transition: 0.5s;
-        color: #6C8976;
+        color: #fff;
     }
 
     /* Profile design */

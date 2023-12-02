@@ -6,11 +6,8 @@
 }
 #chat{
     position: fixed;
-    bottom: 0;
-    margin-bottom: 63px;
+    bottom: 55px;
     display: flex;
-    align-items: center;
-    justify-content: center
 }
 #message{
     width: 82vw;

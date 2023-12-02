@@ -45,16 +45,19 @@
     <!-- Needs color, logo, name, svg burger icon for dropdown-->
     <nav id="navbarPlaceholder"></nav>
 
-    <br><br><br><br>
-    <button onclick="window.location.href = 'allChats.html'">see chats</button>
-
-   <form id="chatForm">
-        <label for="message">message</label>
+    <br><br><br><br> <br><br>
+    <div id="see-startChat">
+    <button class="btn" onclick="window.location.href = 'allChats.html'">see chats</button>
+    <button class="btn" id="newChatBtn">Start a new chat</button></div>
+    <br><br><br>
+    <form id="chatForm">
+        <label for="receiver">who do you want to start to chat with?</label>
+        <input id="receiver" type="text" placeholder="User name">
+        <br><br>
+        <label for="message">Message</label>
         <input id="message" type="text">
-        <label for="receiver">user name</label>
-        <input id="receiver" type="text">
-        <br>
-        <button type="submit" id="submit">submit</button>
+        <br><br>
+        <button class="btn"  type="submit" id="submit">send</button>
     </form>
 
     <!-- Footer-->
@@ -73,5 +76,3 @@
 </body>
 
 </html>
-
-

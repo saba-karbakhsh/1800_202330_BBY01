@@ -1,6 +1,5 @@
 //Initialize Firebase and get reference to the Firestore database
 const auth2 = firebase.auth();
-
 //Event listener for when activity ist posted:
 const activityForm = document.getElementById("chatForm");
 activityForm.addEventListener("submit", function (e) {
@@ -26,7 +25,8 @@ activityForm.addEventListener("submit", function (e) {
                         message: message,
                         receiverName: receiverName,
                         receiverId: receiverId2,
-                        senderId: userUID
+                        senderId: userUID,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     };
                     //Add new activities document to the "Chats" collection:
 
@@ -64,3 +64,9 @@ activityForm.addEventListener("submit", function (e) {
     }
 
 });
+
+
+document.getElementById("chatForm").style.display = "none";
+document.getElementById("newChatBtn").addEventListener('click', function(){
+    document.getElementById("chatForm").style.display = "block";
+})

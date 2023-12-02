@@ -3,7 +3,6 @@ function setsUserIDurl() {
         //get UserID from URL
         const urlParams = new URLSearchParams(window.location.search);
         const userId = urlParams.get('userId');
-
         if (userId) {
             // Call the functions to retrieve and display activities for the specified user
             getPostedActivities("Activities", userId);
@@ -18,7 +17,6 @@ function setsUserIDurl() {
     });
 }
 setsUserIDurl();
-
 
 function getUserProfile(userId) {
     // Get the user profile document from Firestore
@@ -244,32 +242,44 @@ function addFriends() {
     const friendId = urlParams.get('userId');
     const auth2 = firebase.auth();
     userUID = auth2.currentUser.uid;
-    db.collection("Users").doc(friendId).get().then(userInfo => {
-        friendName = userInfo.data().name;
-
-        //Data to store in the Friends document:
-        const friendsData = {
-            friendId: friendId,
-            friendName: friendName
-        };
-        db.collection("Users").doc(userUID).collection("Friends").add(friendsData)
-            .then(() => {
-                console.log("friend added!");
+    db.collection("Users").doc(userUID).collection("Friends").get().then(myFriends =>{
+        myFriends.forEach(myFriendsInfo =>{
+           if(myFriendsInfo.data().friendId != friendId){
+            db.collection("Users").doc(friendId).get().then(userInfo => {
+                friendName = userInfo.data().name;
+        
+                //Data to store in the Friends document:
+                const friendsData = {
+                    friendId: friendId,
+                    friendName: friendName
+                };
+                db.collection("Users").doc(userUID).collection("Friends").add(friendsData)
+                    .then(() => {
+                        console.log("friend added!");
+                    })
+        
+                    .catch((error) => {
+                        console.error("Error adding chat: ", error);
+                    });
+                db.collection("Users").doc(userUID).get().then(myInfo => {
+        
+                    db.collection("Users").doc(friendId).collection("Friends").add({
+                        friendId: userUID,
+                        friendName: myInfo.data().name
+                    })
+                })
             })
-
-            .catch((error) => {
-                console.error("Error adding chat: ", error);
-            });
-        db.collection("Users").doc(userUID).get().then(myInfo => {
-
-            db.collection("Users").doc(friendId).collection("Friends").add({
-                friendId: userUID,
-                friendName: myInfo.data().name
-            })
+           } else{
+            alert("You have already added this person!");
+           }
         })
     })
+    
 
 }
+
+
+
 
 
 function getFriends(collection, userId) {
@@ -299,3 +309,17 @@ function getFriends(collection, userId) {
             });
         })
 }
+
+db.collection("Users").get().then(allUsers => {
+    allUsers.forEach(userInfo => {
+
+        const auth2 = firebase.auth();
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('userId');
+        //Get the user's UID
+        userUID = auth2.currentUser.uid;
+        if(userUID == userId){
+            document.getElementById("addAsFriend").style.display = "none";
+        }
+    })
+})
