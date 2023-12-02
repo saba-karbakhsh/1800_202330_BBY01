@@ -61,12 +61,27 @@ function getPostedActivities(collection, userId) {
                     var location = doc.data().location;
                     var docID = doc.id;
 
+                    //convert the dates to a Date object then convert to UTC string
+                    var localDate = new Date(datetime);
+                    var dateString = localDate.toUTCString();
+
+                    //Store the time to add in AM and PM
+                    var dateTime = localDate.toLocaleTimeString();
+                    // split the strings between the first half and the half after "GMT"
+                    var newStringDate = dateString.split(" ");
+                    var day = newStringDate[0]
+                    var month = newStringDate[2];
+                    var monthNum = newStringDate[1];
+                    var year = newStringDate[3];
+          
+                    var dateFormat = day + " " + month + " " +  monthNum  + " " + year;
+
                     let newCard = cardTemplate.content.cloneNode(true);
 
                     newCard.querySelector('.card-title').innerHTML = title;
                     newCard.querySelector('.card-location').innerHTML = "Location: " + location;
                     newCard.querySelector('.card-text').innerHTML = description;
-                    newCard.querySelector('.card-datetime').innerHTML = "When: " + datetime;
+                    newCard.querySelector('.card-datetime').innerHTML = "When: " + dateFormat + " " + dateTime;
                     newCard.querySelector('a').href = "eachActivity.html?docID=" + docID;
                     newCard.querySelector('.deleteBtn').onclick = () => deletePost(docID, title);
 
@@ -172,12 +187,27 @@ function getJoinedActivities(collection, userId) {
                                 const location = doc.data().location;
                                 const docID = doc.id;
 
+                                //convert the dates to a Date object then convert to UTC string
+                                var localDate = new Date(datetime);
+                                var dateString = localDate.toUTCString();
+
+                                //Store the time to add in AM and PM
+                                var dateTime = localDate.toLocaleTimeString();
+                                // split the strings between the first half and the half after "GMT"
+                                var newStringDate = dateString.split(" ");
+                                var day = newStringDate[0]
+                                var month = newStringDate[2];
+                                var monthNum = newStringDate[1];
+                                var year = newStringDate[3];
+          
+                                var dateFormat = day + " " + month + " " +  monthNum  + " " + year;
+
                                 let newCard = cardTemplate.content.cloneNode(true);
 
                                 newCard.querySelector('.card-title').innerHTML = title;
                                 newCard.querySelector('.card-location').innerHTML = "Location: " + location;
                                 newCard.querySelector('.card-text').innerHTML = description;
-                                newCard.querySelector('.card-datetime').innerHTML = "When: " + datetime;
+                                newCard.querySelector('.card-datetime').innerHTML = "When: " + dateFormat + " " + dateTime;
                                 newCard.querySelector('a').href = "eachActivity.html?docID=" + docID;
 
                                 joinedActivities.appendChild(newCard);
