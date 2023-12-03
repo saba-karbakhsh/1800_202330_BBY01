@@ -9,6 +9,8 @@ function insertNameFromFirestore() {
             currentUser.get().then(userDoc => {
                 // Get the user name
                 var userName = userDoc.data().name;
+                document.getElementById("welcomeContainer").innerHTML = "Welcome to Outventure, " + userName + "!"+ "<br>" + "We hope you enjoy your stay!";
+
                 console.log(userName);
                 
             })
@@ -22,9 +24,9 @@ insertNameFromFirestore();
 
 //have a function that creates a users displays the users 
 
-// setTimeout(() => {
-//     const popUP = document.getElementById('welcomeContainer');
-//     popUP.style.display='none';
-//     popUP.style.transition='1s';
+ setTimeout(() => {
+     const popUP = document.getElementById('welcomeContainer');
+     popUP.style.display='none';
+     popUP.style.transition='1s';
 
-// }, 4000);
+ }, 4000);

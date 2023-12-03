@@ -266,54 +266,48 @@ function setProfile() {
 }
 
 
+
+
+
+
 // adding friends function
 function addFriends() {
     const urlParams = new URLSearchParams(window.location.search);
     const friendId = urlParams.get('userId');
     const auth2 = firebase.auth();
     userUID = auth2.currentUser.uid;
-    db.collection("Users").doc(userUID).collection("Friends").get().then(myFriends =>{
-        myFriends.forEach(myFriendsInfo =>{
-           if(myFriendsInfo.data().friendId != friendId){
-            db.collection("Users").doc(friendId).get().then(userInfo => {
-                friendName = userInfo.data().name;
-        
-                //Data to store in the Friends document:
-                const friendsData = {
-                    friendId: friendId,
-                    friendName: friendName
-                };
-                db.collection("Users").doc(userUID).collection("Friends").add(friendsData)
-                    .then(() => {
-                        console.log("friend added!");
-                    })
-        
-                    .catch((error) => {
-                        console.error("Error adding chat: ", error);
-                    });
-                db.collection("Users").doc(userUID).get().then(myInfo => {
-        
-                    db.collection("Users").doc(friendId).collection("Friends").add({
-                        friendId: userUID,
-                        friendName: myInfo.data().name
-                    })
-                })
+    db.collection("Users").doc(friendId).get().then(userInfo => {
+        friendName = userInfo.data().name;
+
+        //Data to store in the Friends document:
+        const friendsData = {
+            friendId: friendId,
+            friendName: friendName
+        };
+        db.collection("Users").doc(userUID).collection("Friends").add(friendsData)
+            .then(() => {
+                console.log("friend added!");
+                const friendBtn = document.getElementById("addAsFriend");
+                friendBtn.style.display = "none";
             })
-           } else{
-            alert("You have already added this person!");
-           }
+
+            .catch((error) => {
+                console.error("Error adding chat: ", error);
+            });
+        db.collection("Users").doc(userUID).get().then(myInfo => {
+
+            db.collection("Users").doc(friendId).collection("Friends").add({
+                friendId: userUID,
+                friendName: myInfo.data().name
+            })
         })
     })
-    
 
 }
 
 
-
-
-
 function getFriends(collection, userId) {
-    const friendsList = document.getElementById('firendsList');
+    const friendsList = document.getElementById('friendsList');
 
     db.collection(collection).doc(userId).collection("Friends").get()
         .then((allMyFriends) => {
@@ -340,16 +334,39 @@ function getFriends(collection, userId) {
         })
 }
 
-db.collection("Users").get().then(allUsers => {
-    allUsers.forEach(userInfo => {
-
-        const auth2 = firebase.auth();
+// Wait for the authentication state to change
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        const auth4 = firebase.auth();
         const urlParams = new URLSearchParams(window.location.search);
         const userId = urlParams.get('userId');
-        //Get the user's UID
-        userUID = auth2.currentUser.uid;
-        if(userUID == userId){
+        const userUID = auth4.currentUser.uid;
+
+        // Check if the current user is viewing their own page
+        if (userUID === userId) {
             document.getElementById("addAsFriend").style.display = "none";
+        } else if (userUID) {
+            // Check if users are already friends
+            const friendsCollection = db.collection("Users").doc(userUID).collection("Friends");
+
+            friendsCollection.get()
+                .then(querySnapshot => {
+                    // Iterate through the Friends subcollection documents
+                    querySnapshot.forEach(doc => {
+                        const friendId = doc.data().friendId;
+
+                        // Check if the current user is a friend
+                        if (friendId === userId) {
+                            // Users are friends, hide the button
+                            document.getElementById("addAsFriend").style.display = "none";
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error("Error checking friendship status: ", error);
+                });
         }
-    })
-})
+    }
+});
+
+
