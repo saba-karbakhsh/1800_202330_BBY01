@@ -16,6 +16,7 @@
     }
     #message ,#receiver{
         width:54vw ;
+        margin-left: 1em;
     }
     
     #see-startChat{
@@ -24,5 +25,11 @@
     #see-startChat button{
         margin: 20px;
     }
+    
+
+    #messageLabel, #receiverLabel, #submit{
+        margin-left: 1em;
+    }
+
     
 }

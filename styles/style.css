@@ -20,3 +20,24 @@
 #searchSubmit{
     display: none;
 }
+
+
+@media only screen and (max-width: 500px){
+    #navbar-before{
+        color: #efeeb4;
+        display: flex;
+        align-items: center;
+    }
+
+
+    /* Settings styles */
+    #dangerTitle{
+        color: red;
+    }
+
+    #deleteAcc{
+        border: none;
+        background-color: #79B791;
+        color: #efeeb4;
+    }
+}
