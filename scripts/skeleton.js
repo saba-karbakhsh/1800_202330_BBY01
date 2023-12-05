@@ -17,12 +17,12 @@ function loadSkeleton() {
                 const bp = ["/browser(cat1).html", "/browser(cat2).html", "/browser(cat3).html", "/browser(cat4).html",];
             
                 if(currentPage == bp[0] || currentPage == bp[1] || currentPage == bp[2] || currentPage == bp[3]){    
-                    console.log("Page a match");
-                    searchBar.style.display = "block";
-                    searchButton.style.display = "block";
+                    // console.log("Page a match");
+                    searchBar.style.display = "none";
+                    searchButton.style.display = "none";
 
                 } else {
-                    console.log("Page not a match");
+                    // console.log("Page not a match");
                 }
             });
             $('#footerPlaceholder').load('./text/footer_after_login.html');
