@@ -26,15 +26,9 @@ function loadSkeleton() {
                 }
             });
             $('#footerPlaceholder').load('./text/footer_after_login.html');
-            // console.log($('#navbarPlaceholder').load('./text/nav_after_login.html'));
-            // console.log($('#footerPlaceholder').load('./text/footer_after_login.html')); 
-
 
         } else {
             // No user is signed in. //before login state
-            // console.log($('#navbarPlaceholder').load('./text/nav_before_login.html'));
-            // console.log($('#footerPlaceholder').load('./text/footer_before_login.html'));
-
             $('#navbarPlaceholder').load('./text/nav_before_login.html');
             $('#footerPlaceholder').load('./text/footer_before_login.html');
         }
