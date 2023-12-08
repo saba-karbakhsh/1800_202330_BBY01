@@ -49,11 +49,14 @@
     <script src="./scripts/review_eachActivity.js"></script>
     <script src="./scripts/calculation_of_star_rating.js"></script>
 
+    <!--Sweetalert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </head>
 
 <body>
-    <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
-
+    <!--Navbar-->
     <nav id="navbarPlaceholder"></nav>
 
     <div id="container">
@@ -70,12 +73,10 @@
         <span class="material-icons star" id="star4">star_outline</span>
         <span class="material-icons star" id="star5">star_outline</span>
         <div>
-            <button class="btn" id="commentsButton">See Reviews</button>
+            <button class="btn" id="commentsButton">Comments/Reviews</button>
             <button class="btn" id="seeParticipant_btn">Participants</button>
-            <!-- <div id="description"><p class="card-text">Some quick example text to build on the card title and make up the bulk of
-            the card's content.</p></div>-->
+
             <div id="comment_participant_btns">
-                <!--Button users can click on to write review. Calls saveActivityDocumentIDAndRedirect() function-->
                 <button class="btn btn-primary" id="writeReviewBtn" onclick="saveActivityDocumentIDAndRedirect()">Write
                     Review</button>
 

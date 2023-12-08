@@ -32,39 +32,36 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/welcome.css">
     <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="stylesheet" href="./styles/welcome_popup.css">
+    <!-- <link rel="stylesheet" href="./styles/welcome_popup.css"> -->
     <link rel="stylesheet" href="./styles/footer.css">
+
 
 </head>
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
 
-    <!-- Needs color, logo, name, svg burger icon for dropdown-->
+    <!--Navbar-->
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Welcome Pop up -->
-    <!-- <div id="welcomePlaceholder"></div> -->
+    <div id="welcomeContainer"></div>
 
 
     <!-- Category sections -->
-    <main id="main" style="margin-bottom: 10vh;"> 
-        
-        <form action="./browser(cat1).html">
+    <main id="main" style="margin-bottom: 10vh;">
+
+        <form action="./browser(cat1).html" style="margin-bottom: 5vh;">
             <label for="category1">Category 1</label>
             <input type="button"  id="category1"  onclick="window.location='browser(cat1).html'" value="Hiking/Camping">
         </form>
 
-        <form action="./browser(cat2).html">
+        <form action="./browser(cat2).html" style="margin-bottom: 5vh;">
             <label for="category2">Category 2</label>
             <input type="button" id="category2" onclick="window.location='browser(cat2).html'" value="Sports">
         </form>
 
-        <form action="./browser(cat3).html">
+        <form action="./browser(cat3).html" style="margin-bottom: 5vh;">
             <label for="category3">Category 3</label>
             <input type="button" id="category3" onclick="window.location='browser(cat3).html'" value="Gastronomy">
 
@@ -75,7 +72,7 @@
             <input type="button" id="category4" onclick="window.location='browser(cat4).html'" value="Seasonal">
         </form>
     </main>
-    
+
     <!-- Footer-->
     <nav id="footerPlaceholder"></nav>
 
@@ -87,7 +84,6 @@
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="../scripts/welcomeMessage.js"></script>
 
 </body>
 
