@@ -7,32 +7,24 @@ function displayChatsInfo() {
     let ID = params.searchParams.get("docID");
     console.log(ID);
 
-
-
     db.collection("Users").get().then(allUsers => {
         allUsers.forEach(userInfo => {
             //Get the user's UID
             userUID = auth2.currentUser.uid;
         })
 
-
-        
         db.collection("Users").doc(userUID).collection("Friends").doc(ID).collection("Chats").orderBy("timestamp").get().then(allChats => {
             allChats.forEach(chatInfo => {
-                let cardTemplate = document.getElementById("eachChatCardTemplate"); // Retrieve the HTML element with the ID "chatCardTemplate" and store it in the cardTemplate variable. z
+                let cardTemplate = document.getElementById("eachChatCardTemplate"); // Retrieve the HTML element with the ID "eachChatCardTemplate" and store it in the cardTemplate variable.
                 message = chatInfo.data().message;
                 senderId = chatInfo.data().senderId;
                 receiverId = chatInfo.data().receiverId;
 
-
                 let newCard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newCard) that will be filled with Firestore data.
 
-                
                 newCard.querySelector('#messages').innerHTML = message;
 
-                console.log(message);
-
-
+                //organizing the sended and received messages
                 if (userUID == senderId) {
                     newCard.querySelector('.card').style.direction = "rtl";
                 } else if (userUID == receiverId) {
@@ -44,8 +36,6 @@ function displayChatsInfo() {
             })
         })
 
-
-
     })
 
 }
@@ -53,12 +43,13 @@ displayChatsInfo();
 
 
 
-
+//this function is used for continue cahtting in the chatroom
 function sendMessage() {
 
     if (auth2.currentUser) {
         let params = new URL(window.location.href);
         let ID = params.searchParams.get("docID");
+        //getting chat form data
         const message = document.getElementById("message").value;
         userUID = auth2.currentUser.uid;
         db.collection("Users").doc(userUID).collection("Friends").get().then(allfriends => {
@@ -67,6 +58,7 @@ function sendMessage() {
 
                     receiverId2 = friendInfo.data().friendId;
                     receiverName2 = friendInfo.data().friendName;
+                    //chat information to store
                     const chatsData = {
                         message: message,
                         receiverName: receiverName2,
@@ -75,7 +67,7 @@ function sendMessage() {
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     };
                    
-
+                    //adding the chat info to the "Friends" collection (for both sender and receiver)
                     db.collection("Users").doc(userUID).collection("Friends").doc(friendInfo.id).collection("Chats").add(chatsData)
                         .then(() => {
                             document.getElementById("chatForm").reset();
@@ -95,7 +87,6 @@ function sendMessage() {
                     })
                 }
             })
-
 
         })
 

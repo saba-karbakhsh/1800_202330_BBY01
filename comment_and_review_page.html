@@ -33,117 +33,120 @@
     <link rel="stylesheet" href="./styles/comment_page.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
-    
+
 
 </head>
 
 <body>
-    <!-- Navbar: Needs color, logo, name, svg burger icon for dropdown-->
+    <!--Navbar-->
     <nav id="navbarPlaceholder"></nav>
 
     <!--Review form. Uses onclick=writeReview() EventListener/Handler-->
-    
-            <div class="container" id="reviewContainer">
+
+    <div class="container" id="reviewContainer">
+        <br>
+        <h1 id="reviewTitle">Review for <span id="activityName">Activity</span></h1>
+        <br>
+        <form>
+            <div class="form-group">
+                <label for="title">Add a title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title">
+            </div><br>
+
+            <div class="form-group">
+                <div class="card-body">
+                    <p>Rate your overall experience:</p>
+                    <span class="material-icons star" id="star1">star_outline</span>
+                    <span class="material-icons star" id="star2">star_outline</span>
+                    <span class="material-icons star" id="star3">star_outline</span>
+                    <span class="material-icons star" id="star4">star_outline</span>
+                    <span class="material-icons star" id="star5">star_outline</span>
+                </div>
+
+                <label for="level">How enjoyable was this activity?</label>
+                <select class="form-control" id="level">
+                    <option>I enjoyed myself.</option>
+                    <option>It was alright. </option>
+                    <option>I did not enjoy myself.</option>
+                </select>
                 <br>
-                <h1 id="reviewTitle">Review for <span id="activityName">Activity</span></h1>
+
+                <div class="form-group">
+                    <label for="season">Which season did you do this activity?</label>
+                    <select class="form-control" id="season">
+                        <option>Fall</option>
+                        <option>Winter</option>
+                        <option>Spring</option>
+                        <option>Summer</option>
+                    </select>
+                    <br>
+                </div>
                 <br>
-                <form>
-                    <div class="form-group">
-                        <label for="title">Add a title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title">
-                    </div><br>
+                <div class="form-group">
+                    <label for="description">What did you think of the activity?</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <br>
 
-                    <div class="form-group">
-                        <div class="card-body">
-                            <p>Rate your overall experience:</p>
-                            <span class="material-icons star" id="star1">star_outline</span>
-                            <span class="material-icons star" id="star2">star_outline</span>
-                            <span class="material-icons star" id="star3">star_outline</span>
-                            <span class="material-icons star" id="star4">star_outline</span>
-                            <span class="material-icons star" id="star5">star_outline</span>
-                        </div>
+                <!-- Mind Health -->
+                <label>Would you join this activity again in the future? <span
+                        style="display:inline-block; width: 26pt;"></span></label>
 
-                        <label for="level">How enjoyable was this activity?</label>
-                        <select class="form-control" id="level">
-                            <option>I enjoyed myself.</option>
-                            <option>It was alright. </option>
-                            <option>I did not enjoy myself.</option>
-                        </select>
-                        <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="joinAgain" value="Yes">
+                    <label>Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="joinAgain" value="No">
+                    <label>No</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="joinAgain" value="unSure" checked="">
+                    <label>Not sure</label>
+                </div>
+                <br>
 
-                        <div class="form-group">
-                            <label for="season">Which season did you do this activity?</label>
-                            <select class="form-control" id="season">
-                                <option>Fall</option>
-                                <option>Winter</option>
-                                <option>Spring</option>
-                                <option>Summer</option>
-                            </select>
-                        <br>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="description">What did you think of the activity?</label>
-                            <textarea class="form-control" id="description" rows="3"></textarea>
-                        </div>
-                        <br>
+                <!-- Mood after Activity -->
+                <label>How did you feel after completing this activity? <span
+                        style="display:inline-block; width: 20pt;"></span></label>
 
-                        <!-- Mind Health -->
-                        <label>Would you join this activity again in the future? <span style="display:inline-block; width: 26pt;"></span></label>
-        
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="joinAgain" value="Yes">
-                            <label>Yes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="joinAgain" value="No">
-                            <label>No</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="joinAgain" value="unSure" checked="">
-                            <label>Not sure</label>
-                        </div>
-                        <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="feeling" value="Good">
+                    <label>Good</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="feeling" value="Bad">
+                    <label>Bad</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="feeling" value="unsure">
+                    <label>Not sure</label>
+                </div>
 
-                        <!-- Mood after Activity -->
-                        <label>How did you feel after completing this activity? <span style="display:inline-block; width: 20pt;"></span></label>
-        
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="feeling" value="Good">
-                            <label>Good</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="feeling" value="Bad">
-                            <label>Bad</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="feeling" value="unsure">
-                            <label>Not sure</label>
-                        </div>
-
-                        <br>
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-lg btn-primary pull-right"
-                                onclick="writeReview()">Submit</button>
-                        </div>
-                    </div>
-                </form>
+                <br>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-lg btn-primary pull-right"
+                        onclick="writeReview()">Submit</button>
+                </div>
             </div>
+        </form>
+    </div>
 
 
-     <!-- Footer-->
-     <nav id="footerPlaceholder"></nav>
+    <!-- Footer-->
+    <nav id="footerPlaceholder"></nav>
 
-     <!---------------------------------------------->
-     <!-- Your own JavaScript functions go here    -->
-     <!---------------------------------------------->
- 
-     <!-- Link to scripts of your own -->
-     <script src="./scripts/firebaseAPI_BBY01.js"></script>
-     <script src="./scripts/skeleton.js"></script>
-     <script src="./scripts/script.js"></script>
-     <script src="./scripts/comments_and_ reviews_Page.js"></script>
-     
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
 
-   </body>
- </html>
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/firebaseAPI_BBY01.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/comments_and_ reviews_Page.js"></script>
+
+
+</body>
+
+</html>

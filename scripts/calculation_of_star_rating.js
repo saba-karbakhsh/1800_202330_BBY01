@@ -1,3 +1,4 @@
+//calculating the star rating
 function getStarRating() {
     let params = new URL(window.location.href);
     let activityID = params.searchParams.get("docID");
@@ -7,6 +8,7 @@ function getStarRating() {
     let four_star = 0;
     let five_star = 0;
     let reviewers = 0;
+    //getting the number of each star(1, 2, 3, 4, 5) and the number of reviewers from firestore
     db.collection("Activities").get().then(activities => {
         activities.forEach(activityInfo => {
             db.collection("reviews").get().then(reviews => {
@@ -14,7 +16,6 @@ function getStarRating() {
                     activityDocID = reviewInfo.data().activityDocID;
                     if (activityInfo.id == activityDocID) {
                         reviewers++;
-
                         if (reviewInfo.data().rating == 1) {
                             one_star++;
                         } else if (reviewInfo.data().rating == 2) {
@@ -27,13 +28,12 @@ function getStarRating() {
                             five_star++;
                         }
                     }
-
                 });
-                //console.log( activityID );
+                //calculating the average
                 average = ((one_star) + (two_star * 2) + (three_star * 3) + (four_star * 4) + (five_star * 5)) / reviewers;
                 if (activityID == activityInfo.id) {
-
-                    document.getElementById("starRating").innerHTML = "Average rating: " + Number(average).toFixed(1); 
+                    //showing the average with stars
+                    document.getElementById("starRating").innerHTML = "Average rating: " + Number(average).toFixed(1);
                     for (let i = 1; i <= Math.ceil(average); i++) {
                         document.getElementById(`star${i}`).textContent = 'star';
                         if (Math.round(average) != average && i == Math.ceil(average)) {
@@ -41,7 +41,6 @@ function getStarRating() {
                         }
                     }
                 }
-                console.log(activityInfo.id + " l " + average);
                 reviewers = 0;
                 one_star = 0;
                 two_star = 0;
@@ -49,9 +48,6 @@ function getStarRating() {
                 four_star = 0;
                 five_star = 0;
             })
-
-
-
         })
 
     })

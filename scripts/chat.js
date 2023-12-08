@@ -28,8 +28,8 @@ activityForm.addEventListener("submit", function (e) {
                         senderId: userUID,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     };
-                    //Add new activities document to the "Chats" collection:
 
+                    //Add new chat info to the "Friends" collection (for both the receiver and sender):
                     db.collection("Users").doc(userUID).collection("Friends").get().then(allFriends => {
                         allFriends.forEach(friendInfo => {
 
@@ -42,7 +42,6 @@ activityForm.addEventListener("submit", function (e) {
                                     .catch((error) => {
                                         console.error("Error adding chat: ", error);
                                     });
-
                             }
                         })
                     })
@@ -67,6 +66,6 @@ activityForm.addEventListener("submit", function (e) {
 
 
 document.getElementById("chatForm").style.display = "none";
-document.getElementById("newChatBtn").addEventListener('click', function(){
+document.getElementById("newChatBtn").addEventListener('click', function () {
     document.getElementById("chatForm").style.display = "block";
 })
