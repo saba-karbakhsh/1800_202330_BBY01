@@ -33,15 +33,8 @@ stars.forEach((star, index) => {
 
 //Write a new collection called "reviews"
 function writeReview() {
-    console.log("inside write review");
-    let activityTitle = document.getElementById("title").value;
-    let activityLevel = document.getElementById("level").value;
-    let activitySeason = document.getElementById("season").value;
-    let activityDescription = document.getElementById("description").value;
-    let joinAgain = document.querySelector('input[name="joinAgain"]:checked').value;
-    let feeling = document.querySelector('input[name="feeling"]:checked').value;
 
-    // Get the star rating
+  // Get the star rating
 		// Get all the elements with the class "star" and store them in the 'stars' variable
     const stars = document.querySelectorAll('.star');
 		// Initialize a variable 'activityRating' to keep track of the rating count
@@ -51,11 +44,25 @@ function writeReview() {
 				// Check if the text content of the current 'star' element is equal to the string 'star'
         if (star.textContent === 'star') {
 						// If the condition is met, increment the 'hikeRating' by 1
-                        activityRating++;
-        }
+            activityRating++;  
+            
+                     
+        } 
+      
     });
 
-    console.log(activityTitle, activityLevel, activitySeason, activityDescription, joinAgain, feeling, activityRating);
+
+    console.log("inside write review");
+    let activityTitle = document.getElementById("title").value;
+    let activityLevel = document.getElementById("level").value;
+    let activitySeason = document.getElementById("season").value;
+    let activityDescription = document.getElementById("description").value;
+    let joinAgain = document.querySelector('input[name="joinAgain"]:checked').value;
+    let feeling = document.querySelector('input[name="feeling"]:checked').value;
+    let rating = activityRating;
+  
+
+    console.log(activityTitle, activityLevel, activitySeason, activityDescription, joinAgain, feeling, rating);
 
     var user = firebase.auth().currentUser;
     if (user) {
@@ -72,7 +79,7 @@ function writeReview() {
             description: activityDescription,
             WouldJoinAgain: joinAgain,
             Feeling: feeling,
-            rating: activityRating,
+            rating: rating,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
          }).then(() => {
             // Redirect to the thanks page

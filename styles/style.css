@@ -18,3 +18,34 @@ body{
 #message{
     width: 82vw;
 }
+
+#category1{
+    background-image: url(/1800_202330_BBY01/images/hike.jpg);
+    opacity :0.8;
+    background-size: 400px 150px;
+    color: black;
+    
+    
+}
+
+#category2{
+    background-image: url(/1800_202330_BBY01/images/sports.jpg);
+    background-size: 400px;
+    color: black;
+    opacity :0.8;
+
+}
+
+#category3{
+    background-image: url(/1800_202330_BBY01/images/gastronomy.jpg);
+    background-size: 300px;
+    color: black;
+    opacity :0.8;
+
+}
+
+#category4{
+    background-image: url(/1800_202330_BBY01/images/seasonal.jpg);
+    background-size: 300px;
+    opacity :0.8;
+}
